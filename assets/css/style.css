@@ -7,19 +7,19 @@
     border: none;
 }
 
-body {
-    font-family: 'Varela Round', sans-serif;
-    font-weight: 400;
+body,
+h1 {
     color: #2c2c2c;
     text-align: center;
 }
 
+body {
+    font-family: 'Varela Round', sans-serif;
+}
+
 h1 {
     font-family: 'MuseoModerno', sans-serif;
-    font-weight: 500;
-    color: #2c2c2c;
     font-size: 4rem;
-    text-align: center;
     line-height: 8rem;
 }
 
@@ -31,15 +31,17 @@ h1 {
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 1rem;
-    background-color: #8aaabd;
     padding: 20px;
     border-radius: 16px;
+    background-color: #8aaabd;    
 }
 
 #game-area div {
     width: 5rem;
     height: 5rem;
+    color: whitesmoke;
     font-size: 4rem;
+    font-weight: bolder;
     border: 2px solid #2c2c2c;
     border-radius: 8px;
 }
