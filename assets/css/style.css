@@ -1,1 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&family=Varela+Round&display=swap');
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    color: #2c2c2c;
+}
+
+h1 {
+    font-family: 'MuseoModerno', sans-serif;
+    font-weight: 500;
+    color: #2c2c2c;
+    font-size: 4rem;
+    text-align: center;
+}
