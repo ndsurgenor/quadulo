@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&family=Varela+Round&display=swap');
 
-/* general */
-
+/* General */
 * {
     margin: 0;
     padding: 0;
@@ -21,10 +20,10 @@ h1 {
     color: #2c2c2c;
     font-size: 4rem;
     text-align: center;
+    line-height: 8rem;
 }
 
-/* Game area */
-
+/* Game Area */
 #game-area {
     width: fit-content;
     height: fit-content;
@@ -34,6 +33,7 @@ h1 {
     gap: 1rem;
     background-color: #8aaabd;
     padding: 20px;
+    border-radius: 16px;
 }
 
 #game-area div {
@@ -42,4 +42,13 @@ h1 {
     font-size: 4rem;
     border: 2px solid #2c2c2c;
     border-radius: 8px;
+}
+
+#game-area div:hover {
+    border-color: whitesmoke;
+}
+
+/* Page Footer */
+footer {
+    line-height: 4rem;
 }
