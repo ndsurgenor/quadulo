@@ -29,21 +29,22 @@ h1 {
     height: fit-content;
     margin: auto;
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 1rem;
-    padding: 20px;
-    border-radius: 16px;
-    background-color: #8aaabd;    
+    grid-template-columns: auto auto auto auto auto;
+    gap: 0.75rem;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #abc6d6;    
 }
 
 #game-area div {
-    width: 5rem;
-    height: 5rem;
-    color: whitesmoke;
-    font-size: 4rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 3rem;
     font-weight: bolder;
+    color: whitesmoke;
     border: 2px solid #2c2c2c;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 #game-area div:hover {
@@ -52,5 +53,5 @@ h1 {
 
 /* Page Footer */
 footer {
-    line-height: 4rem;
+    line-height: 5rem;
 }
