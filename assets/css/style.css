@@ -37,9 +37,9 @@ h1 {
 }
 
 #game-area div {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 3rem;
+    width: 4rem;
+    height: 4rem;
+    font-size: 3.5rem;
     font-weight: bolder;
     color: whitesmoke;
     border: 2px solid #2c2c2c;
@@ -51,7 +51,7 @@ h1 {
 }
 
 /* Page Footer */
-footer p {
+#design-info {
     font-size: 0.9rem;
     line-height: 4rem;
 }
@@ -59,14 +59,32 @@ footer p {
 /* Media queries for screens 450px and smaller */
 @media screen and (max-width: 450px) {
 
+    #game-area {
+        gap: 0.6rem;
+        padding: 10px;
+    }
+
+    #game-area div {
+        width: 3rem;
+        height: 3rem;
+        font-size: 2.5rem;
+    }
+
+    #design-info {
+        font-size: 0.85rem;
+    }
+}
+
+/* Media queries for screens 320px and smaller */
+@media screen and (max-width: 320px) {
+
     h1 {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
         line-height: 5rem;
     }
 
     #game-area {
         gap: 0.5rem;
-        padding: 10px;
     }
 
     #game-area div {
@@ -75,8 +93,9 @@ footer p {
         font-size: 2rem;
     }
 
-    footer p {
-        font-size: 0.75rem;
+    #design-info {
+        font-size: 0.7rem;
         line-height: 4rem;
     }
+
 }
