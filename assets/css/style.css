@@ -19,8 +19,8 @@ body {
 
 h1 {
     font-family: 'MuseoModerno', sans-serif;
-    font-size: 4rem;
-    line-height: 8rem;
+    font-size: 3.5rem;
+    line-height: 6rem;
 }
 
 /* Game Area */
@@ -33,13 +33,12 @@ h1 {
     gap: 0.75rem;
     padding: 15px;
     border-radius: 15px;
-    background-color: #abc6d6;    
+    background-color: #abc6d6;
 }
 
 #game-area div {
-    width: 4rem;
-    height: 4rem;
-    line-height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     font-size: 3rem;
     font-weight: bolder;
     color: whitesmoke;
@@ -52,6 +51,32 @@ h1 {
 }
 
 /* Page Footer */
-footer {
-    line-height: 5rem;
+footer p {
+    font-size: 0.9rem;
+    line-height: 4rem;
+}
+
+/* Media queries for screens 450px and smaller */
+@media screen and (max-width: 450px) {
+
+    h1 {
+        font-size: 2.75rem;
+        line-height: 5rem;
+    }
+
+    #game-area {
+        gap: 0.5rem;
+        padding: 10px;
+    }
+
+    #game-area div {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 2rem;
+    }
+
+    footer p {
+        font-size: 0.75rem;
+        line-height: 4rem;
+    }
 }
