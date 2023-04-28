@@ -16,10 +16,14 @@ function setupGame() {
         let cellValue = Math.floor(Math.random() * 5 + 1);
         cell.innerHTML = cellValue;
 
-        // This step helps prevent too many 5s appearing in the intial grid
+        // This step helps prevent too many 5s appearing in the initial grid
         if (cellValue === 5) {
             let cellValue = Math.floor(Math.random() * 5 + 1);
             cell.innerHTML = cellValue;
         }
     }
+}
+
+function cellSelect(row, col) {
+    
 }
