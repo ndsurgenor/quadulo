@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (let cell of cells) {
         cell.addEventListener('click', function () {
-            // listens for cell click and records its column and row references
+            // listens for cell click and records its column, row, and value
             let col = this.getAttribute('data-col');
             let row = this.getAttribute('data-row');
-            cellSelect(col, row);
+            let val = cell.innerHTML;
+            cellSelect(col, row, val);
 
         });
     }
@@ -38,8 +39,19 @@ function setupGame() {
  * All cells in the same row and column are increased by the same amount.
  * Modular addition is used to prevent an increase beyond 5. 
  */
-function cellSelect(col, row) {
+function cellSelect(col, row, val) {
 
-    console.log(col, row);
+    console.log(col, row, val);
 
+    for (cell of cells) {
+
+        let currentVal = cell.innerHTML;
+        newVal = parseInt(currentVal) + parseInt(val);
+
+        if (newVal > 5) {
+            cell.innerHTML = newVal - 5;
+        } else {
+            cell.innerHTML = newVal;
+        }
+    }
 }
