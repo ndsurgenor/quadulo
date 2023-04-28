@@ -18,12 +18,12 @@ let grid = document.getElementById('game-area');
 let cells = grid.children;
 
 /**
- * Sets up the game by randomly filling the grid with numbers from 1 to 4. 
+ * Sets up the game by randomly filling the grid with numbers from 0 to 2. 
  */
 function setupGame() {
 
     for (cell of cells) {
-        let cellVal = Math.floor(Math.random() * 4 + 1); //'5' is not included at setup to prevent an easy win-state
+        let cellVal = Math.floor(Math.random() * 3); //'5' is not included at setup to prevent an easy win-state
         cell.innerHTML = cellVal;
 
         cellStyle(cellVal);
@@ -59,6 +59,12 @@ function cellSelect(col, row, val) {
  * Styles the cell according to its value.
  */
 function cellStyle(cellVal) {
+
+    if (cellVal == 0) {
+        cell.style.color = 'lightblue';
+    } else {
+        cell.style.color = 'whitesmoke';
+    }
 
     if (cellVal == 1) {
         cell.style.backgroundColor = 'crimson';
