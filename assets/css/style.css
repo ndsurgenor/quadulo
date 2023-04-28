@@ -33,21 +33,22 @@ h1 {
     gap: 0.75rem;
     padding: 15px;
     border-radius: 15px;
-    background-color: #abc6d6;
+    background-color: lightblue;
 }
 
 #game-area div {
     width: 4rem;
     height: 4rem;
-    font-size: 3.5rem;
+    font-size: 3.25rem;
     font-weight: bolder;
     color: whitesmoke;
-    border: 2px solid #2c2c2c;
+    border: 2px solid dimgray;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
 #game-area div:hover {
-    border-color: whitesmoke;
+    border: 3px solid whitesmoke;
     cursor: pointer;
 }
 
