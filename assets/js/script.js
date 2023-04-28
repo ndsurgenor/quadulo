@@ -23,14 +23,8 @@ let cells = grid.children;
 function setupGame() {
 
     for (cell of cells) {
-        let cellValue = Math.floor(Math.random() * 5 + 1);
+        let cellValue = Math.floor(Math.random() * 4 + 1);
         cell.innerHTML = cellValue;
-
-        // This step helps prevent too many 5s appearing in the initial grid
-        if (cellValue === 5) {
-            let cellValue = Math.floor(Math.random() * 5 + 1);
-            cell.innerHTML = cellValue;
-        }
     }
 }
 
@@ -41,17 +35,15 @@ function setupGame() {
  */
 function cellSelect(col, row, val) {
 
-    console.log(col, row, val);
-
     for (cell of cells) {
 
+        let cellColumn = cell.getAttribute('data-col');
+        let cellRow = cell.getAttribute('data-row');
         let currentVal = cell.innerHTML;
-        newVal = parseInt(currentVal) + parseInt(val);
+        newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected 
 
-        if (newVal > 5) {
-            cell.innerHTML = newVal - 5;
-        } else {
-            cell.innerHTML = newVal;
+        if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell 
+            newVal > 5 ? cell.innerHTML = newVal - 5 : cell.innerHTML = newVal;
         }
     }
 }
