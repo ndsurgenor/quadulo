@@ -48,6 +48,7 @@ h1 {
 
 #game-area div:hover {
     border-color: whitesmoke;
+    cursor: pointer;
 }
 
 /* Page Footer */
