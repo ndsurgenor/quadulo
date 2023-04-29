@@ -2,32 +2,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupGame(); // intialises game setup
 
-    // listens for cell click and records its column, row, and value
+    // listens for which cell has been clicked
     for (let cell of cells) {
 
         cell.addEventListener('click', function () {
 
             let col = this.getAttribute('data-col');
             let row = this.getAttribute('data-row');
+            let cellRef = col + row;
             let val = cell.innerHTML;
 
-            cellSelect(col, row, val);
+            if (cellsUnavailable.includes(cellRef)) {
+                alert('Not allowed');
+            } else {
+                cellSelect(col, row, val);
+            }
         });
     }
 });
 
 let grid = document.getElementById('game-area');
 let cells = grid.children;
+let cellsUnavailable = [];
 
 /**
- * Sets up the game by randomly filling the grid with numbers from 0 to 2. 
+ * Sets up the intial game state. 
  */
 function setupGame() {
+
+    cellsUnavailable = []; //Clears the array of any data
 
     for (cell of cells) {
 
         let cellVal = Math.floor(Math.random() * 3);
-        cell.innerHTML = cellVal;
+        cell.innerHTML = cellVal; //Fills cells with values of 0, 1 or 2
 
         cellStyle(cellVal);
     }
@@ -42,8 +50,10 @@ function cellSelect(col, row, val) {
 
     if (val == 0) {
         alert('Selecting an empty cell is not allowed!');
+
     } else if (val == 5) {
         alert('Selecting a 5 is not allowed!');
+
     } else {
         for (cell of cells) {
 
@@ -59,6 +69,8 @@ function cellSelect(col, row, val) {
                 cellStyle(cellVal);
             }
         }
+        let cellRef = col + row;
+        cellsUnavailable.push(cellRef);
     }
     checkWin();
 }
