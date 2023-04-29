@@ -2,14 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupGame(); // intialises game setup
 
+    // listens for cell click and records its column, row, and value
     for (let cell of cells) {
+
         cell.addEventListener('click', function () {
-            // listens for cell click and records its column, row, and value
+
             let col = this.getAttribute('data-col');
             let row = this.getAttribute('data-row');
             let val = cell.innerHTML;
-            cellSelect(col, row, val);
 
+            cellSelect(col, row, val);
         });
     }
 });
@@ -23,7 +25,8 @@ let cells = grid.children;
 function setupGame() {
 
     for (cell of cells) {
-        let cellVal = Math.floor(Math.random() * 3); //'5' is not included at setup to prevent an easy win-state
+
+        let cellVal = Math.floor(Math.random() * 3);
         cell.innerHTML = cellVal;
 
         cellStyle(cellVal);
@@ -37,21 +40,26 @@ function setupGame() {
  */
 function cellSelect(col, row, val) {
 
-    for (cell of cells) {
+    if (val == 0) {
+        alert('Selecting an empty cell is not allowed!');
+    } else if (val == 5) {
+        alert('Selecting a 5 is not allowed!');
+    } else {
+        for (cell of cells) {
 
-        let cellColumn = cell.getAttribute('data-col');
-        let cellRow = cell.getAttribute('data-row');
-        let currentVal = cell.innerHTML;
+            let cellColumn = cell.getAttribute('data-col');
+            let cellRow = cell.getAttribute('data-row');
+            let currentVal = cell.innerHTML;
 
-        if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell 
-            newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-            newVal > 5 ? cell.innerHTML = newVal - 5 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-5
+            if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell 
+                newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
+                newVal > 5 ? cell.innerHTML = newVal - 5 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-5
 
-            cellVal = cell.innerHTML;
-            cellStyle(cellVal);
+                cellVal = cell.innerHTML;
+                cellStyle(cellVal);
+            }
         }
     }
-
     checkWin();
 }
 
