@@ -60,12 +60,14 @@ function cellSelect(col, row, val) {
  */
 function cellStyle(cellVal) {
 
+    // Sets text color
     if (cellVal == 0) {
         cell.style.color = 'lightblue';
     } else {
         cell.style.color = 'whitesmoke';
     }
 
+    // Sets background color
     if (cellVal == 1) {
         cell.style.backgroundColor = 'crimson';
     } else if (cellVal == 2) {
@@ -76,6 +78,13 @@ function cellStyle(cellVal) {
         cell.style.backgroundColor = 'royalblue';
     } else if (cellVal == 5) {
         cell.style.backgroundColor = 'rebeccapurple';
+    }
+
+    // Sets cursor style
+    if (cellVal == 0 || cellVal == 5) {
+        cell.style.cursor = 'not-allowed';
+    } else {
+        cell.style.cursor = 'pointer';
     }
 }
 

@@ -49,7 +49,7 @@ h1 {
 
 #game-area div:hover {
     border: 3px solid whitesmoke;
-    cursor: pointer;
+    cursor: hand;
 }
 
 /* Page Footer */
