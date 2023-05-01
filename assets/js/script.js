@@ -42,7 +42,7 @@ function setupGame() {
             cellStyle(cellVal, cellRef);
             setupCheck = setupCheck + cellVal;
         }
-    } while (setupCheck < 6 || setupCheck > 14); //Prevents a no-win/trivial game
+    } while (setupCheck < 6 || setupCheck > 12); //Prevents a no-win/cluttered setup
 }
 
 /**
