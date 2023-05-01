@@ -34,8 +34,8 @@ function setupGame() {
     for (cell of cells) {
 
         let cellRef = 0; //Ensures no cells are greyed out during setup
-        let cellVal = Math.floor(Math.random() * 3);
-        cell.innerHTML = cellVal; //Fills cells with values of 0, 1 or 2
+        let cellVal = Math.floor(Math.random() * 2);
+        cell.innerHTML = cellVal; //Fills cells with values of 0 or 1
 
         cellStyle(cellVal, cellRef);
     }
@@ -51,9 +51,6 @@ function cellSelect(col, row, val) {
     if (val == 0) {
         alert('Selecting an empty cell is not allowed!');
 
-    } else if (val == 5) {
-        alert('Selecting a 5 is not allowed!');
-
     } else {
         let cellMarker = col + row;
         cellsUnavailable.push(cellMarker);
@@ -67,11 +64,11 @@ function cellSelect(col, row, val) {
 
             if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell 
                 newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-                newVal > 5 ? cell.innerHTML = newVal - 5 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-5                             
+                newVal > 5 ? cell.innerHTML = newVal - 5: cell.innerHTML = newVal; //Uses modular sum to keep range as 1-5                             
             }
 
             cellVal = cell.innerHTML;
-            cellStyle(cellVal, cellRef); //Restyles cells, where appropriate, according to new attributes
+            cellStyle(cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes
         }
     }
     checkWin();
@@ -83,11 +80,13 @@ function cellSelect(col, row, val) {
  */
 function cellStyle(cellVal, cellRef) {
 
-    // Sets text color
+    // Sets text color and cursor style
     if (cellVal == 0) {
         cell.style.color = 'lightblue';
+        cell.style.cursor = 'not-allowed';
     } else {
         cell.style.color = 'whitesmoke';
+        cell.style.cursor = 'pointer';
     }
 
     // Sets background color
@@ -103,29 +102,15 @@ function cellStyle(cellVal, cellRef) {
         cell.style.backgroundColor = 'rebeccapurple';
     }
 
-    // Sets cursor style
-    if (cellVal == 0 || cellVal == 5) {
-        cell.style.cursor = 'not-allowed';
-    } else {
-        cell.style.cursor = 'pointer';
-    }
-
     // Overides above styles if cell has been already selected
     if (cellsUnavailable.includes(cellRef)) {
         cell.style.backgroundColor = 'gainsboro';
         cell.style.cursor = 'not-allowed';
-
-        if (cellVal < 5) {
-            cell.style.color = 'gray';
-        } else {
-            cell.style.color = 'rebeccapurple';
-        }
     }
 }
 
 /**
  * Checks to see if the user has won the game.
- * The game is won by having five 5s in any column/row
  */
 function checkWin() {
 
