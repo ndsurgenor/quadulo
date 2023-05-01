@@ -30,15 +30,19 @@ let cellsUnavailable = [];
 function setupGame() {
 
     cellsUnavailable = []; //Clears the array of any data
+    let setupCheck = 0; //Resets check count
 
-    for (cell of cells) {
+    do {
+        for (cell of cells) {
 
-        let cellRef = 0; //Ensures no cells are greyed out during setup
-        let cellVal = Math.floor(Math.random() * 2);
-        cell.innerHTML = cellVal; //Fills cells with values of 0 or 1
+            let cellRef = 0; //Ensures no cells are greyed out during setup
+            let cellVal = Math.floor(Math.random() * 2);
+            cell.innerHTML = cellVal; //Fills cells with values of 0 or 1
 
-        cellStyle(cellVal, cellRef);
-    }
+            cellStyle(cellVal, cellRef);
+            setupCheck = setupCheck + cellVal;
+        }
+    } while (setupCheck < 5 || setupCheck > 15); //Ensures 5 to 15 filled cells at setup
 }
 
 /**
@@ -64,7 +68,7 @@ function cellSelect(col, row, val) {
 
             if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell 
                 newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-                newVal > 5 ? cell.innerHTML = newVal - 5: cell.innerHTML = newVal; //Uses modular sum to keep range as 1-5                             
+                newVal > 5 ? cell.innerHTML = newVal - 5 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-5                             
             }
 
             cellVal = cell.innerHTML;
