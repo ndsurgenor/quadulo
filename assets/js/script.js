@@ -94,8 +94,10 @@ function cellStyle(cellVal, cellRef) {
     }
 
     // Sets background color
-    if (cellVal == 1) {
-        cell.style.backgroundColor = 'crimson';
+    if (cellVal == 0) {
+        cell.style.backgroundColor = 'inherit';
+    } else if (cellVal == 1) {
+            cell.style.backgroundColor = 'crimson';
     } else if (cellVal == 2) {
         cell.style.backgroundColor = 'darkorange';
     } else if (cellVal == 3) {
