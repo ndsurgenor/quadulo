@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
             let val = cell.innerHTML;
 
             if (cellsUnavailable.includes(cellMarker)) {
-                alert('Not allowed');
+                alert('That block is not available');
+            } else if (val != req) {
+                alert(`You must select a block containing ${req}`);
             } else {
                 cellSelect(col, row, val);
             }
@@ -20,10 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-let grid = document.getElementById('game-area');
-let cells = grid.children;
-let cellsUnavailable = [];
-let setupCheck = 0;
+let grid = document.getElementById('game-area'); //Targets the 4x4 grid 
+let cells = grid.children; //Targets the 16 divs within the 4x4 grid 
+let cellsUnavailable = []; //An array used to keep track of selected cells 
+let setupCheck; //A variable used to ensure correct setup at game launch
+let req; //A variable used to ensure cells are selected in the correct order
 
 /**
  * Sets up the initial game state. 
@@ -31,7 +34,8 @@ let setupCheck = 0;
 function setupGame() {
 
     cellsUnavailable = []; //Ensures all cells are available
-    
+    req = 1; //Ensures all cells are available
+
     do {
         setupCheck = 0; //Resets check count        
         for (cell of cells) {
@@ -40,11 +44,10 @@ function setupGame() {
             let cellVal = Math.floor(Math.random() * 2);
             cell.innerHTML = cellVal; //Fills cells with values of 0 or 1
 
-            cellStyle(cellVal, cellRef);
+            cellStyle(req, cellVal, cellRef);
             setupCheck = setupCheck + cellVal;
         }
     } while (setupCheck < 7 || setupCheck > 14); //Prevents a no-win/almost filled grid
-    console.log(setupCheck);
 }
 
 /**
@@ -54,53 +57,47 @@ function setupGame() {
  */
 function cellSelect(col, row, val) {
 
-    if (val == 0) {
-        alert('Selecting an empty cell is not allowed!');
-    } else if (val > 4) {
-        alert('Selecting an cell above 4 is not allowed!');
-    } else {
-        if (val == 1) {
-            cellsUnavailable = []; //Resets cells available when a 1 is clicked
-        }
-        
-        let cellMarker = col + row;
-        cellsUnavailable.push(cellMarker); //Makes the selected cell unavailable until a 1 is clicked again       
-
-        for (cell of cells) {
-            let cellColumn = cell.getAttribute('data-col');
-            let cellRow = cell.getAttribute('data-row');
-            let cellRef = cellColumn + cellRow;
-            let currentVal = cell.innerHTML;
-
-            if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell                              
-                newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-                newVal > 9 ? cell.innerHTML = newVal - 9 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-9                           
-            }
-            cellVal = cell.innerHTML;
-            cellStyle(cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes
-        }
+    if (val == 1) {
+        cellsUnavailable = []; //Resets grayed-out cells when a 1 is clicked
     }
-    checkWin();
+
+    let cellMarker = col + row;
+    cellsUnavailable.push(cellMarker); //Makes the selected cell unavailable until a 1 is clicked again
+    req == 4 ? req = 1 : req = req + 1; //Sets the required value of the next selected cell (1234 in order)
+
+    for (cell of cells) {
+        let cellColumn = cell.getAttribute('data-col');
+        let cellRow = cell.getAttribute('data-row');
+        let cellRef = cellColumn + cellRow;
+        let currentVal = cell.innerHTML;
+
+        if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell                              
+            newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
+            newVal > 9 ? cell.innerHTML = newVal - 9 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-9                           
+        }
+        cellVal = cell.innerHTML;
+        cellStyle(req, cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes
+    }
 }
 
 /**
  * Styles the cell according to its value and
  * whether or not it has already been selected. 
  */
-function cellStyle(cellVal, cellRef) {
+function cellStyle(req, cellVal, cellRef) {
+
+    // Sets cursor style
+    if (cellVal != req) {
+        cell.style.cursor = 'not-allowed';
+    } else {
+        cell.style.cursor = 'pointer';
+    }
 
     // Sets text color
     if (cellVal == 0) {
         cell.style.color = 'lightblue';
     } else {
         cell.style.color = 'whitesmoke';
-    }
-
-    // Sets cursor style
-    if (cellVal == 0 || cellVal > 4) {
-        cell.style.cursor = 'not-allowed';
-    } else {
-        cell.style.cursor = 'pointer';
     }
 
     // Sets background color
@@ -127,8 +124,8 @@ function cellStyle(cellVal, cellRef) {
 }
 
 /**
- * Checks to see if the user has won the game.
+ * Checks to see if the user has lost the game.
  */
-function checkWin() {
+function checkDone() {
 
 }
