@@ -124,7 +124,7 @@ function cellStyle(req, cellVal, cellRef) {
 }
 
 /**
- * Checks to see if the user has lost the game.
+ * Checks to see if the user has no more moves.
  */
 function checkDone() {
 
