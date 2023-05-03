@@ -12,18 +12,24 @@ document.addEventListener('DOMContentLoaded', function () {
             let val = cell.innerHTML;
 
             if (cellsUnavailable.includes(cellMarker)) {
-                alert('That block is not available');
+                bannerMain.innerHTML = `Block unavailable. Select a <span id="banner-value">${req}</span>`;
+                bannerStyle(req);
             } else if (val != req) {
-                alert(`You must select a block containing ${req}`);
+                bannerMain.innerHTML = `Next number must be <span id="banner-value">${req}</span>`;
+                bannerStyle(req);
             } else {
                 cellSelect(col, row, val);
+                bannerMain.innerHTML = `Next number <span id="banner-value">${req}</span>`;
+                bannerStyle(req);
             }
         });
     }
 });
 
+let bannerMain = document.getElementById('banner-main'); //Targets the info banner
 let grid = document.getElementById('game-area'); //Targets the 4x4 grid 
-let cells = grid.children; //Targets the 16 divs within the 4x4 grid 
+let cells = grid.children; //Targets the 16 divs within the 4x4 grid
+
 let cellsUnavailable = []; //An array used to keep track of selected cells 
 let setupCheck; //A variable used to ensure correct setup at game launch
 let req; //A variable used to ensure cells are selected in the correct order
@@ -63,7 +69,7 @@ function cellSelect(col, row, val) {
 
     let cellMarker = col + row;
     cellsUnavailable.push(cellMarker); //Makes the selected cell unavailable until a 1 is clicked again
-    req == 4 ? req = 1 : req = req + 1; //Sets the required value of the next selected cell (1234 in order)
+    req == 4 ? req = 1 : req = req + 1; //Sets the required value of the next selected cell (1234 in order)    
 
     for (cell of cells) {
         let cellColumn = cell.getAttribute('data-col');
@@ -76,7 +82,24 @@ function cellSelect(col, row, val) {
             newVal > 9 ? cell.innerHTML = newVal - 9 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-9                           
         }
         cellVal = cell.innerHTML;
-        cellStyle(req, cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes
+        cellStyle(req, cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes        
+    }
+}
+
+/**
+ * Styles the banner according to the next required value.
+ */
+function bannerStyle(req) {
+    let bannerValue = document.getElementById('banner-value');
+
+    if (req == 1) {
+        bannerValue.style.background = 'crimson';
+    } else if (req == 2) {
+        bannerValue.style.background = 'darkorange';
+    } else if (req == 3) {
+        bannerValue.style.background = 'forestgreen';
+    } else if (req == 4) {
+        bannerValue.style.background = 'royalblue';
     }
 }
 

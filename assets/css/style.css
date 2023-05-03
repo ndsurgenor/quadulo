@@ -25,21 +25,18 @@ h1 {
 }
 
 /* Game info */
-#game-info {
-    font-size: 1.5rem;
+#info-banner {
+    font-size: 1.35rem;
     padding-bottom: 0.75rem;
 }
 
-.cell-info {
+#banner-value {
     font-weight: bolder;
-    border: 2px solid dimgray;
+    color: whitesmoke;
+    background-color: crimson;
+    border: 1px solid dimgray;
     border-radius: 5px;
     padding: 0rem 0.4rem;
-}
-
-#gi-text-ingame,
-#gi-text-end {
-    display: none;
 }
 
 /* 4x4 Grid */
@@ -63,8 +60,9 @@ h1 {
     color: whitesmoke;
     border: 2px solid dimgray;
     border-radius: 10px;
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
+
 
 #game-area div:hover {
     border: 3px solid whitesmoke;
