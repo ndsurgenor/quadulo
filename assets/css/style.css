@@ -30,11 +30,16 @@ h1 {
     padding-bottom: 0.75rem;
 }
 
-#cell-info {    
+.cell-info {
     font-weight: bolder;
-    border: 1px solid dimgray;
+    border: 2px solid dimgray;
     border-radius: 5px;
     padding: 0rem 0.4rem;
+}
+
+#gi-text-ingame,
+#gi-text-end {
+    display: none;
 }
 
 /* 4x4 Grid */
