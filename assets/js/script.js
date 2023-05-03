@@ -29,7 +29,7 @@ let cellsUnavailable = [];
  */
 function setupGame() {
 
-    cellsUnavailable = []; //Clears the array of any data
+    cellsUnavailable = []; //Ensures all cells are available
     let setupCheck = 0; //Resets check count
 
     do {
@@ -42,35 +42,38 @@ function setupGame() {
             cellStyle(cellVal, cellRef);
             setupCheck = setupCheck + cellVal;
         }
-    } while (setupCheck < 6 || setupCheck > 16); //Prevents a no-win/almost filled grid
+    } while (setupCheck < 7 || setupCheck > 14); //Prevents a no-win/almost filled grid
 }
 
 /**
  * Increases the value of a cell by the value it currently contains.
  * All cells in the same row and column are increased by the same amount.
- * Modular addition is used to prevent an increase beyond 5. 
+ * Modular addition is used to prevent an increase beyond 9. 
  */
 function cellSelect(col, row, val) {
 
     if (val == 0) {
         alert('Selecting an empty cell is not allowed!');
-
+    } else if (val > 4) {
+        alert('Selecting an cell above 4 is not allowed!');
     } else {
+        if (val == 1) {
+            cellsUnavailable = []; //Resets cells available when a 1 is clicked
+        }
+        
         let cellMarker = col + row;
-        cellsUnavailable.push(cellMarker);
+        cellsUnavailable.push(cellMarker); //Makes the selected cell unavailable until a 1 is clicked again       
 
         for (cell of cells) {
-
             let cellColumn = cell.getAttribute('data-col');
             let cellRow = cell.getAttribute('data-row');
             let cellRef = cellColumn + cellRow;
             let currentVal = cell.innerHTML;
 
-            if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell 
+            if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell                              
                 newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-                newVal > 5 ? cell.innerHTML = newVal - 5 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-5                             
+                newVal > 9 ? cell.innerHTML = newVal - 9 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-9                           
             }
-
             cellVal = cell.innerHTML;
             cellStyle(cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes
         }
@@ -97,14 +100,14 @@ function cellStyle(cellVal, cellRef) {
     if (cellVal == 0) {
         cell.style.backgroundColor = 'inherit';
     } else if (cellVal == 1) {
-            cell.style.backgroundColor = 'crimson';
+        cell.style.backgroundColor = 'crimson';
     } else if (cellVal == 2) {
         cell.style.backgroundColor = 'darkorange';
     } else if (cellVal == 3) {
         cell.style.backgroundColor = 'forestgreen';
     } else if (cellVal == 4) {
         cell.style.backgroundColor = 'royalblue';
-    } else if (cellVal == 5) {
+    } else {
         cell.style.backgroundColor = 'rebeccapurple';
     }
 
