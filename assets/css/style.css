@@ -56,27 +56,8 @@ h1 {
 
 /* Page Footer */
 #design-info {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 4rem;
-}
-
-/* Media queries for screens 450px and smaller */
-@media screen and (max-width: 450px) {
-
-    #game-area {
-        gap: 0.6rem;
-        padding: 10px;
-    }
-
-    #game-area div {
-        width: 4rem;
-        height: 4rem;
-        font-size: 3.25rem;
-    }
-
-    #design-info {
-        font-size: 0.85rem;
-    }
 }
 
 /* Media queries for screens 320px and smaller */

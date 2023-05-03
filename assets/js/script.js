@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 let grid = document.getElementById('game-area');
 let cells = grid.children;
 let cellsUnavailable = [];
+let setupCheck = 0;
 
 /**
  * Sets up the initial game state. 
@@ -30,9 +31,9 @@ let cellsUnavailable = [];
 function setupGame() {
 
     cellsUnavailable = []; //Ensures all cells are available
-    let setupCheck = 0; //Resets check count
-
+    
     do {
+        setupCheck = 0; //Resets check count        
         for (cell of cells) {
 
             let cellRef = 0; //Ensures no cells are greyed out during setup
@@ -43,6 +44,7 @@ function setupGame() {
             setupCheck = setupCheck + cellVal;
         }
     } while (setupCheck < 7 || setupCheck > 14); //Prevents a no-win/almost filled grid
+    console.log(setupCheck);
 }
 
 /**
@@ -87,12 +89,17 @@ function cellSelect(col, row, val) {
  */
 function cellStyle(cellVal, cellRef) {
 
-    // Sets text color and cursor style
+    // Sets text color
     if (cellVal == 0) {
         cell.style.color = 'lightblue';
-        cell.style.cursor = 'not-allowed';
     } else {
         cell.style.color = 'whitesmoke';
+    }
+
+    // Sets cursor style
+    if (cellVal == 0 || cellVal > 4) {
+        cell.style.cursor = 'not-allowed';
+    } else {
         cell.style.cursor = 'pointer';
     }
 
@@ -113,6 +120,7 @@ function cellStyle(cellVal, cellRef) {
 
     // Overides above styles if cell has been already selected
     if (cellsUnavailable.includes(cellRef)) {
+        cell.style.color = 'white';
         cell.style.backgroundColor = 'gainsboro';
         cell.style.cursor = 'not-allowed';
     }
