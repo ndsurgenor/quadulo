@@ -30,10 +30,9 @@ h1 {
     padding-bottom: 0.75rem;
 }
 
-#banner-value {
+#next, #limi {
     font-weight: bolder;
     color: whitesmoke;
-    background-color: crimson;
     border: 1px solid dimgray;
     border-radius: 5px;
     padding: 0rem 0.4rem;

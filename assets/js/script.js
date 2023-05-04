@@ -11,28 +11,29 @@ document.addEventListener('DOMContentLoaded', function () {
             let cellMarker = col + row;
             let val = cell.innerHTML;
 
-            if (cellsUnavailable.includes(cellMarker)) {
-                bannerMain.innerHTML = `Block unavailable. Select a <span id="banner-value">${req}</span>`;
+            if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
+                bannerMain.innerHTML = `Block unavailable. Select a <span id="next">${req}</span>`;
                 bannerStyle(req);
-            } else if (val != req) {
-                bannerMain.innerHTML = `Next number must be <span id="banner-value">${req}</span>`;
+            } else if (val != req) { //Incorrect value selected
+                bannerMain.innerHTML = `Next number must be <span id="next">${req}</span>`;
                 bannerStyle(req);
             } else {
-                cellSelect(col, row, val);
-                bannerMain.innerHTML = `Next number <span id="banner-value">${req}</span>`;
+                cellSelect(col, row, val); //Correct value selected
+                bannerMain.innerHTML = `Next <span id="next">${req}</span> | Limit <span id="limit">${lim}</span>`;
                 bannerStyle(req);
             }
         });
     }
 });
 
-let bannerMain = document.getElementById('banner-main'); //Targets the info banner
+let bannerMain = document.getElementById('banner'); //Targets the info banner
 let grid = document.getElementById('game-area'); //Targets the 4x4 grid 
 let cells = grid.children; //Targets the 16 divs within the 4x4 grid
 
-let cellsUnavailable = []; //An array used to keep track of selected cells 
-let setupCheck; //A variable used to ensure correct setup at game launch
-let req; //A variable used to ensure cells are selected in the correct order
+let cellsUnavailable = []; //Array used to keep track of selected cells 
+let setupCheck; //Variable used to ensure correct setup at game launch
+let req; //Variable used to ensure cells are selected in the correct order
+let lim; //Variable used to set upper value of cells
 
 /**
  * Sets up the initial game state. 
@@ -40,7 +41,8 @@ let req; //A variable used to ensure cells are selected in the correct order
 function setupGame() {
 
     cellsUnavailable = []; //Ensures all cells are available
-    req = 1; //Ensures all cells are available
+    req = 1;
+    lim = 5;
 
     do {
         setupCheck = 0; //Resets check count        
@@ -79,7 +81,7 @@ function cellSelect(col, row, val) {
 
         if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell                              
             newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-            newVal > 9 ? cell.innerHTML = newVal - 9 : cell.innerHTML = newVal; //Uses modular sum to keep range as 1-9                           
+            newVal > lim ? cell.innerHTML = newVal - lim : cell.innerHTML = newVal; //Uses modular sum to lim as upper value                       
         }
         cellVal = cell.innerHTML;
         cellStyle(req, cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes        
@@ -90,16 +92,16 @@ function cellSelect(col, row, val) {
  * Styles the banner according to the next required value.
  */
 function bannerStyle(req) {
-    let bannerValue = document.getElementById('banner-value');
+    let nextVal = document.getElementById('next');
 
     if (req == 1) {
-        bannerValue.style.background = 'crimson';
+        nextVal.style.background = 'crimson';
     } else if (req == 2) {
-        bannerValue.style.background = 'darkorange';
+        nextVal.style.background = 'darkorange';
     } else if (req == 3) {
-        bannerValue.style.background = 'forestgreen';
+        nextVal.style.background = 'forestgreen';
     } else if (req == 4) {
-        bannerValue.style.background = 'royalblue';
+        nextVal.style.background = 'royalblue';
     }
 }
 
