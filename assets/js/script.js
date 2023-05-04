@@ -35,6 +35,8 @@ let cellsUnavailable = []; //Array used to keep track of selected cells
 let setupCheck; //Variable used to ensure correct setup at game launch
 let req; //Variable used to ensure cells are selected in the correct order
 let lim; //Variable used to set upper value of cells
+let lev; //Variable used to track game level
+let bloc; //Variable used to track number of blocks cleared
 
 /**
  * Sets up the initial game state. 
@@ -44,6 +46,8 @@ function setupGame() {
     cellsUnavailable = []; //Ensures all cells are available
     req = 1;
     lim = 5;
+    lev = 1;
+    bloc = 0;
 
     do {
         setupCheck = 0; //Resets check count        

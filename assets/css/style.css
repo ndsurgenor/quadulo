@@ -74,6 +74,21 @@ h1 {
     cursor: hand;
 }
 
+/* Counters & Controls */
+#counters p {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin: 1rem 0.5rem;
+}
+
+#level, #blocks {
+    font-weight: bolder;
+    background-color: lightcyan;
+    border: 1px solid dimgray;
+    border-radius: 5px;
+    padding: 0.35rem;
+}
+
 /* Footer */
 #design-info {
     font-size: 0.85rem;
