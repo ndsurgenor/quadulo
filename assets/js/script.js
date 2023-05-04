@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    setupGame(); // Intialises game setup
+    setupGame();
 
     // Listens for which cell has been clicked
     for (let cell of cells) {
@@ -11,14 +11,17 @@ document.addEventListener('DOMContentLoaded', function () {
             let cellMarker = col + row;
             let val = cell.innerHTML;
 
-            if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
+            //NB Banner messages should be 30 characters or fewer to fit comfortably on screen
+            if (endCheck == 16) { //No possible moves left
+                banner.innerHTML = `<p>Click 'New Game' to start over</p>`;
+            } else if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
                 banner.innerHTML = `<p>Block unavailable. Select a <span id="next">${req}</span></p>`;
                 bannerStyle(req);
             } else if (val != req) { //Incorrect value selected
                 banner.innerHTML = `<p>Next number must be <span id="next">${req}</span></p>`;
                 bannerStyle(req);
             } else {
-                cellSelect(col, row, val); //Correct value selected
+                cellSelect(col, row, val); //Required value selected
                 if (endCheck == 16) {
                     banner.innerHTML = `<p><span id="next">${req}</span> unavailable: GAME OVER</p>`;
                 } else {
@@ -77,8 +80,8 @@ function setupGame() {
 /**
  * Increases the value of a cell by the value it currently contains.
  * All cells in the same row and column are increased by the same amount.
- * NB: if (val == 1) MUST be placed at top of function while if (val == 4)
- * MUST be placed at the bottom of the function for correct operation.
+ * NB: if (val == 1) and if (val == 4) MUST be placed at the top and
+ * bottom of the function respectively in order to operate correctly.
  */
 function cellSelect(col, row, val) {
 
