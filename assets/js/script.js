@@ -12,21 +12,22 @@ document.addEventListener('DOMContentLoaded', function () {
             let val = cell.innerHTML;
 
             if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
-                bannerMain.innerHTML = `Block unavailable. Select a <span id="next">${req}</span>`;
+                banner.innerHTML = `<p>Block unavailable. Select a <span id="next">${req}</span></p>`;
                 bannerStyle(req);
             } else if (val != req) { //Incorrect value selected
-                bannerMain.innerHTML = `Next number must be <span id="next">${req}</span>`;
+                banner.innerHTML = `<p>Next number must be <span id="next">${req}</span></p>`;
                 bannerStyle(req);
             } else {
                 cellSelect(col, row, val); //Correct value selected
-                bannerMain.innerHTML = `Next <span id="next">${req}</span> | Limit <span id="limit">${lim}</span>`;
+                banner.innerHTML = `<p>Next <span id="next">${req}</span></p>
+                                    <p>Limit <span id="limit">${lim}</span></p>`;
                 bannerStyle(req);
             }
         });
     }
 });
 
-let bannerMain = document.getElementById('banner'); //Targets the info banner
+let banner = document.getElementById('banner'); //Targets the info banner
 let grid = document.getElementById('game-area'); //Targets the 4x4 grid 
 let cells = grid.children; //Targets the 16 divs within the 4x4 grid
 
@@ -51,9 +52,10 @@ function setupGame() {
             let cellRef = 0; //Ensures no cells are greyed out during setup
             let cellVal = Math.floor(Math.random() * 2);
             cell.innerHTML = cellVal; //Fills cells with values of 0 or 1
-
-            cellStyle(req, cellVal, cellRef);
             setupCheck = setupCheck + cellVal;
+
+            bannerStyle(req);
+            cellStyle(req, cellVal, cellRef);
         }
     } while (setupCheck < 7 || setupCheck > 14); //Prevents a no-win/almost filled grid
 }

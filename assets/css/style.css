@@ -25,17 +25,23 @@ h1 {
 }
 
 /* Game info */
-#info-banner {
+#banner p {
     font-size: 1.35rem;
+    display: inline-block;
+    margin: 0rem 0.2rem;
     padding-bottom: 0.75rem;
 }
 
-#next, #limi {
+#next, #limit {
     font-weight: bolder;
     color: whitesmoke;
     border: 1px solid dimgray;
     border-radius: 5px;
     padding: 0rem 0.4rem;
+}
+
+#limit {
+    background-color: rebeccapurple;
 }
 
 /* 4x4 Grid */
