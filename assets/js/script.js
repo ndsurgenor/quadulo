@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
 let banner = document.getElementById('banner'); //Targets the info banner
 let grid = document.getElementById('game-area'); //Targets the 4x4 grid 
 let cells = grid.children; //Targets the 16 divs within the 4x4 grid
+let levelNum = document.getElementById('level'); //Targets the level counter
+let blocksNum = document.getElementById('blocks'); //Targets the block counter
 
 let cellsUnavailable = []; //Array used to keep track of selected cells 
 let setupCheck; //Variable used to ensure correct setup at game launch
@@ -67,7 +69,8 @@ function setupGame() {
 /**
  * Increases the value of a cell by the value it currently contains.
  * All cells in the same row and column are increased by the same amount.
- * Modular addition is used to prevent an increase beyond 9. 
+ * NB: if (val == 1) MUST be placed at top of function while if (val == 4)
+ * MUST be placed at the bottom of the function for correct operation.
  */
 function cellSelect(col, row, val) {
 
@@ -76,8 +79,10 @@ function cellSelect(col, row, val) {
     }
 
     let cellMarker = col + row;
-    cellsUnavailable.push(cellMarker); //Makes the selected cell unavailable until a 1 is clicked again
-    req == 4 ? req = 1 : req = req + 1; //Sets the required value of the next selected cell (1234 in order)    
+    cellsUnavailable.push(cellMarker); //Makes selected cell unavailable
+    req == 4 ? req = 1 : req = req + 1;
+    bloc = bloc + 1;
+    blocksNum.innerHTML = bloc < 10 ? '0' + bloc : bloc;        
 
     for (cell of cells) {
         let cellColumn = cell.getAttribute('data-col');
@@ -91,6 +96,12 @@ function cellSelect(col, row, val) {
         }
         cellVal = cell.innerHTML;
         cellStyle(req, cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes        
+    }
+
+    if (val == 4 && bloc % 16 == 0) {
+        lev = lev + 1; //Increases level every 16 blocks cleared
+        levelNum.innerHTML = lev < 10 ? '0' + lev : lev;
+        lim < 9 ? lim = lim + 1 : lim = 9; //Increases limit at same time (max 9)
     }
 }
 
