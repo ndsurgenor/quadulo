@@ -19,8 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 bannerStyle(req);
             } else {
                 cellSelect(col, row, val); //Correct value selected
-                banner.innerHTML = `<p>Next <span id="next">${req}</span></p>
+                if (endCheck == 16) {
+                    banner.innerHTML = `<p><span id="next">${req}</span> unavailable. GAME OVER.</p>`;
+                } else {
+                    endCheck = 0;
+                    banner.innerHTML = `<p>Next <span id="next">${req}</span></p>
                                     <p>Limit <span id="limit">${lim}</span></p>`;
+                }
                 bannerStyle(req);
             }
         });
@@ -35,6 +40,7 @@ let blocksNum = document.getElementById('blocks'); //Targets the block counter
 
 let cellsUnavailable = []; //Array used to keep track of selected cells 
 let setupCheck; //Variable used to ensure correct setup at game launch
+let endCheck; //Variable used to determine if the player is out of moves
 let req; //Variable used to ensure cells are selected in the correct order
 let lim; //Variable used to set upper value of cells
 let lev; //Variable used to track game level
@@ -82,7 +88,7 @@ function cellSelect(col, row, val) {
     cellsUnavailable.push(cellMarker); //Makes selected cell unavailable
     req == 4 ? req = 1 : req = req + 1;
     bloc = bloc + 1;
-    blocksNum.innerHTML = bloc < 10 ? '0' + bloc : bloc;        
+    blocksNum.innerHTML = bloc < 10 ? '0' + bloc : bloc;
 
     for (cell of cells) {
         let cellColumn = cell.getAttribute('data-col');
@@ -94,8 +100,13 @@ function cellSelect(col, row, val) {
             newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
             newVal > lim ? cell.innerHTML = newVal - lim : cell.innerHTML = newVal; //Uses modular sum to lim as upper value                       
         }
+
         cellVal = cell.innerHTML;
-        cellStyle(req, cellVal, cellRef); //Restyles cells (where appropriate) according to new attributes        
+        cellStyle(req, cellVal, cellRef);
+
+        if (cellVal != req || cellsUnavailable.includes(cellRef)) {
+            endCheck = endCheck + 1;
+        }
     }
 
     if (val == 4 && bloc % 16 == 0) {
