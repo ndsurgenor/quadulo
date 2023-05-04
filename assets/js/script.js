@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 cellSelect(col, row, val); //Correct value selected
                 if (endCheck == 16) {
-                    banner.innerHTML = `<p><span id="next">${req}</span> unavailable. GAME OVER.</p>`;
+                    banner.innerHTML = `<p><span id="next">${req}</span> unavailable: GAME OVER</p>`;
                 } else {
                     endCheck = 0;
                     banner.innerHTML = `<p>Next <span id="next">${req}</span></p>
@@ -51,11 +51,13 @@ let bloc; //Variable used to track number of blocks cleared
  */
 function setupGame() {
 
-    cellsUnavailable = []; //Ensures all cells are available
+    //Sets variables to intial values
+    cellsUnavailable = [];
     req = 1;
     lim = 5;
     lev = 1;
     bloc = 0;
+    endCheck = 0;
 
     do {
         setupCheck = 0; //Resets check count        
@@ -69,7 +71,7 @@ function setupGame() {
             bannerStyle(req);
             cellStyle(req, cellVal, cellRef);
         }
-    } while (setupCheck < 7 || setupCheck > 14); //Prevents a no-win/almost filled grid
+    } while (setupCheck < 7 || setupCheck > 14); //Prevents a no-win or almost filled grid
 }
 
 /**
@@ -80,8 +82,9 @@ function setupGame() {
  */
 function cellSelect(col, row, val) {
 
+    //Resets grayed-out cells when a 1 is clicked
     if (val == 1) {
-        cellsUnavailable = []; //Resets grayed-out cells when a 1 is clicked
+        cellsUnavailable = [];
     }
 
     let cellMarker = col + row;
@@ -109,10 +112,11 @@ function cellSelect(col, row, val) {
         }
     }
 
+     //Increases level and limit (max 9) every 16 blocks cleared
     if (val == 4 && bloc % 16 == 0) {
-        lev = lev + 1; //Increases level every 16 blocks cleared
+        lev = lev + 1;
         levelNum.innerHTML = lev < 10 ? '0' + lev : lev;
-        lim < 9 ? lim = lim + 1 : lim = 9; //Increases limit at same time (max 9)
+        lim < 9 ? lim = lim + 1 : lim = 9;
     }
 }
 
@@ -174,11 +178,4 @@ function cellStyle(req, cellVal, cellRef) {
         cell.style.backgroundColor = 'gainsboro';
         cell.style.cursor = 'not-allowed';
     }
-}
-
-/**
- * Checks to see if the user has no more moves.
- */
-function checkDone() {
-
 }
