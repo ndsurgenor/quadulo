@@ -23,6 +23,7 @@ h1 {
     font-family: 'MuseoModerno', sans-serif;
     font-size: 3.5rem;
     line-height: 5.5rem;
+    margin-top: 1rem;
 }
 
 /* Game info */
@@ -54,7 +55,7 @@ h1 {
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 0.5rem;
-    padding: 10px;
+    padding: 0.65rem;
     border-radius: 15px;
     background-color: lightblue;
 }
@@ -117,30 +118,27 @@ button:hover {
 
 #confirmation,
 #rules-text {
-    display: none;    
+    display: none;
 }
 
 #rules-text {
-    text-align: justify;
+    font-size: 0.95rem;
     background-color: whitesmoke;
     border: 2px solid dimgray;
     border-radius: 10px;
-    padding: 5px;
+    padding: 0.5rem;
     position: relative;
-    top: -28.25rem;    
+    top: -28.5rem;
     z-index: 1;
 }
 
-#rules-text h2 {
-    text-align: center;
-}
-
 #rules-text h3 {
+    text-align: justify;
     padding: 0.5rem 0rem 0.2rem;
 }
 
-#rules-text button {
-    align: right;
+#rules-text p {
+    text-align: justify;
 }
 
 /* Footer */
@@ -152,8 +150,8 @@ button:hover {
     bottom: 0rem;
 }
 
-/* Media queries for screens 320px and smaller */
-@media screen and (max-width: 320px) {
+/* Media queries for screens 350px and smaller */
+@media screen and (max-width: 350px) {
 
     h1 {
         font-size: 2.75rem;
@@ -165,7 +163,7 @@ button:hover {
     }
 
     #next {
-        padding: 0rem 0.4rem;
+        padding: 0rem 0.3rem;
     }
 
     #game-area div {
@@ -189,8 +187,17 @@ button:hover {
         padding: 0.4rem 0.5rem;
     }
 
+    #hidden-options {
+        width: 16.5rem;
+    }
+
+    #rules-text {
+                font-size: 0.85rem;
+        top: -23rem;
+    }
+
     #design-info {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         line-height: 3rem;
     }
 }
