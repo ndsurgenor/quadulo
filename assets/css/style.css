@@ -47,6 +47,10 @@ h1 {
     background-color: rebeccapurple;
 }
 
+#banner-ng {
+    color: rebeccapurple
+}
+
 /* 4x4 Grid */
 #game-area {
     width: fit-content;
@@ -113,23 +117,25 @@ button:hover {
 /* Hidden options */
 #hidden-options {
     width: 20rem;
+    height: 0;
     margin: auto;
 }
 
 #confirmation,
-#rules-text {
+#rules-text {    
     display: none;
+    position: relative;
+    z-index: 1;
 }
 
 #rules-text {
-    font-size: 0.95rem;
     background-color: whitesmoke;
+    font-size: 0.95rem;
     border: 2px solid dimgray;
     border-radius: 10px;
     padding: 0.5rem;
-    position: relative;
+    margin-bottom: -28.5rem;
     top: -28.5rem;
-    z-index: 1;
 }
 
 #rules-text h3 {
@@ -141,13 +147,19 @@ button:hover {
     text-align: justify;
 }
 
+#confirmation {
+    background-color: white;
+    padding-bottom: 0.5rem;
+    margin-bottom: -2.65rem;
+    top: -2.65rem;
+}
+
 /* Footer */
 #design-info {
+    width: 100%;
     font-size: 0.85rem;
     line-height: 4rem;
-    margin: auto;
-    position: fixed;
-    bottom: 0rem;
+    position: relative;
 }
 
 /* Media queries for screens 350px and smaller */
@@ -192,7 +204,7 @@ button:hover {
     }
 
     #rules-text {
-                font-size: 0.85rem;
+        font-size: 0.85rem;
         top: -23rem;
     }
 

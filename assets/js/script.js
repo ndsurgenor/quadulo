@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //NB Banner messages should be 30 characters or fewer to fit comfortably on screen
             if (endCheck == 16) { //No possible moves left
-                banner.innerHTML = `<p>Click 'New Game' to start over</p>`;
+                banner.innerHTML = `<p>Click <span id="banner-ng">New Game</span> to start over</p>`;
             } else if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
                 banner.innerHTML = `<p>Block unavailable. Select a <span id="next">${req}</span></p>`;
                 bannerStyle(req);
@@ -43,11 +43,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (type === 'newgame') {
                 confirm.style.display = 'block';
                 rules.style.display = 'none';
+            } else if (type === 'yes') {
                 banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
+                confirm.style.display = 'none';
                 setupGame();
+            } else if (type === 'no') {
+                confirm.style.display = 'none';
             } else if (type === 'rules') {
                 rules.style.display = 'block';
-                rulesShow();
+                confirm.style.display = 'none';
+            } else if (type === 'got-it') {
+                rules.style.display = 'none';
             }
         });
     }
@@ -116,8 +122,8 @@ function cellSelect(col, row, val) {
 
     let cellMarker = col + row;
     cellsUnavailable.push(cellMarker); //Makes selected cell unavailable
-    req == 4 ? req = 1 : req = req + 1;
-    bloc = bloc + 1;
+    req == 4 ? req = 1 : ++req;
+    bloc = ++bloc;
     blocksNum.innerHTML = bloc < 10 ? '0' + bloc : bloc;
 
     for (cell of cells) {
@@ -135,15 +141,15 @@ function cellSelect(col, row, val) {
         cellStyle(req, cellVal, cellRef);
 
         if (cellVal != req || cellsUnavailable.includes(cellRef)) {
-            endCheck = endCheck + 1;
+            endCheck = ++endCheck;
         }
     }
 
     //Increases level and limit (max 9) every 16 blocks cleared
     if (val == 4 && bloc % 16 == 0) {
-        lev = lev + 1;
+        lev = ++lev;
         levelNum.innerHTML = lev < 10 ? '0' + lev : lev;
-        lim < 9 ? lim = lim + 1 : lim = 9;
+        lim < 9 ? ++lim : lim = 9;
     }
 }
 

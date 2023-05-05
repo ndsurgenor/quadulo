@@ -8,18 +8,18 @@
     <meta name="description" content="Quadulo: a click-4 game of logic">
     <meta name="keywords" content="quadulo, game, quadulo game, logic, logic game, modulus">
 
-    <!-- stylesheet link and tab title -->
+    <!-- Stylesheet Link and Tab Title -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Quadulo - logic game</title>
 </head>
 
 <body>
-    <!-- Game title -->
+    <!-- Game Title -->
     <header>
         <h1>Quadulo</h1>
     </header>
 
-    <!-- Info banner -->
+    <!-- Info Banner -->
     <section id="info-banner">
         <div id="banner">
             <p>Click any <span id="next">1</span> to begin</p>
@@ -67,12 +67,13 @@
         </div>
     </section>
 
-    <!-- Hidden Options -->
+    <!-- Hidden Text (only displayed when certain options are selected) -->
     <section id="hidden-options">
         <div id="confirmation">
-            <p>Game in progress, are you sure?</p>
-            <button data-type="yes">Y</button>
-            <button data-type="no">N</button>
+            <p>Really start over?
+                <button data-type="yes"><i class="fa-solid fa-square-check"></i> Yes</button>
+                <button data-type="no"><i class="fa-solid fa-square-xmark"></i> No</button>
+            </p>
         </div>
         <div id="rules-text">
             <h2>Rules</h2>
@@ -84,7 +85,8 @@
                 unavailable until a 1 is clicked again.</p>
             <h3>Limits</h3>
             <p>Blocks will only ever increase as high as the current limit (initially set at 5). If a block would
-                increase beyond the limit its value rolls back round to 1, 2, 3 etc. The limit will increase by 1 (max 9)
+                increase beyond the limit its value rolls back round to 1, 2, 3 etc. The limit will increase by 1 (max
+                9)
                 for every level progressed i.e. every 16 blocks cleared.
             </p>
             <button data-type="got-it"><i class="fa-solid fa-thumbs-up"></i> OK - Got it!</button>
@@ -96,7 +98,7 @@
         <p id="design-info">Game Design & Coding &copy;2023 Nathan Surgenor</p>
     </footer>
 
-    <!-- Script loaders -->
+    <!-- Script Loaders -->
     <script src="assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/cdf703ddf8.js" crossorigin="anonymous"></script>
 
