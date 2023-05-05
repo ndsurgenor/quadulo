@@ -38,10 +38,16 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let button of buttons) {
         button.addEventListener('click', function () {
 
-            if (this.getAttribute('data-type') === 'newgame') {
+            let type = this.getAttribute('data-type');
+
+            if (type === 'newgame') {
+                confirm.style.display = 'block';
+                rules.style.display = 'none';
                 banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
                 setupGame();
-            } else {
+            } else if (type === 'rules') {
+                confirm.style.display = 'none';
+                rules.style.display = 'block';
                 rulesShow();
             }
         });
@@ -54,6 +60,8 @@ let cells = grid.children; //Targets the 16 divs within the 4x4 grid
 let levelNum = document.getElementById('level'); //Targets the level counter
 let blocksNum = document.getElementById('blocks'); //Targets the block counter
 let buttons = document.getElementsByTagName('button'); //Targets the buttons
+let confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
+let rules = document.getElementById('rules-text'); //Targets the hidden rules text div
 
 let cellsUnavailable = []; //Array used to keep track of selected cells 
 let setupCheck; //Variable used to ensure correct setup at game launch

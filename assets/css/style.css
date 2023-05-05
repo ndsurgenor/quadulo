@@ -13,7 +13,8 @@ h1 {
     text-align: center;
 }
 
-body, button {
+body,
+button {
     font-family: 'Varela Round', sans-serif;
 }
 
@@ -75,7 +76,7 @@ h1 {
     cursor: hand;
 }
 
-/* Counters & Controls */
+/* Counters & Buttons */
 #counters p {
     font-size: 1.2rem;
     display: inline-block;
@@ -106,6 +107,12 @@ button:hover {
     color: whitesmoke;
     background-color: rebeccapurple;
     cursor: pointer;
+}
+
+/* Hidden options */
+#confirmation,
+#rules-text {
+    display: none;
 }
 
 /* Footer */
@@ -147,9 +154,9 @@ button:hover {
     }
 
     button {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.5rem;
-}
+        font-size: 0.9rem;
+        padding: 0.4rem 0.5rem;
+    }
 
     #design-info {
         font-size: 0.65rem;
