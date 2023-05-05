@@ -9,11 +9,11 @@
 
 body,
 h1 {
-    color: #2c2c2c;
+    color: black;
     text-align: center;
 }
 
-body {
+body, button {
     font-family: 'Varela Round', sans-serif;
 }
 
@@ -87,8 +87,24 @@ h1 {
     font-weight: bolder;
     background-color: lightcyan;
     border: 1.5px solid dimgray;
-    border-radius: 8px;
-    padding: 0.3rem;
+    border-radius: 5px;
+    padding: 0.25rem;
+}
+
+button {
+    color: rebeccapurple;
+    background-color: whitesmoke;
+    font-size: 1rem;
+    letter-spacing: -0.5px;
+    border: 1px solid dimgray;
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+}
+
+button:hover {
+    color: whitesmoke;
+    background-color: rebeccapurple;
+    cursor: pointer;
 }
 
 /* Footer */
