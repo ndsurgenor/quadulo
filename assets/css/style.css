@@ -110,9 +110,20 @@ button:hover {
 }
 
 /* Hidden options */
+#hidden-options {
+    width: 18rem;
+    margin: auto;
+}
+
 #confirmation,
 #rules-text {
     display: none;
+    text-align: justify;
+    z-index: 1;
+}
+
+#rules-text li {
+    list-style: square;
 }
 
 /* Footer */

@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
                 setupGame();
             } else if (type === 'rules') {
-                confirm.style.display = 'none';
                 rules.style.display = 'block';
                 rulesShow();
             }

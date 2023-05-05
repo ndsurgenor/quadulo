@@ -75,13 +75,18 @@
             <button data-type="no">N</button>
         </div>
         <div id="rules-text">
-            <h2>Quadulo - Rules</h2>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+            <h2>Rules</h2>
+            <h3>Goal</h3>
+            <p>Click as many blocks as you can before running out of possible moves</p>
+            <h3>Gameplay</h3>
+            <p>Blocks must be clicked in the order 1-2-3-4 repeating; blocks > 4 cannot be selected. All blocks in the
+                same row and column will increase by the value of the selected block. Selecting a block makes it
+                unavailable until a 1 is clicked again.</p>
+            <h3>Limits</h3>
+            <p>Blocks will only ever increase as high as the current limit (initially set at 5). If a block would
+                increase beyond the limit its value rolls back round to 1,2,3 etc. The limit will increase by 1 (max 9)
+                for every level progressed ie every 16 blocks cleared.
+            </p>
         </div>
     </section>
 
