@@ -111,25 +111,45 @@ button:hover {
 
 /* Hidden options */
 #hidden-options {
-    width: 18rem;
+    width: 20rem;
     margin: auto;
 }
 
 #confirmation,
 #rules-text {
-    display: none;
+    display: none;    
+}
+
+#rules-text {
     text-align: justify;
+    background-color: whitesmoke;
+    border: 2px solid dimgray;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+    top: -28.25rem;    
     z-index: 1;
 }
 
-#rules-text li {
-    list-style: square;
+#rules-text h2 {
+    text-align: center;
+}
+
+#rules-text h3 {
+    padding: 0.5rem 0rem 0.2rem;
+}
+
+#rules-text button {
+    align: right;
 }
 
 /* Footer */
 #design-info {
     font-size: 0.85rem;
     line-height: 4rem;
+    margin: auto;
+    position: fixed;
+    bottom: 0rem;
 }
 
 /* Media queries for screens 320px and smaller */
