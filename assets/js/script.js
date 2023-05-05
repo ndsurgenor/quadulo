@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupGame();
 
-    // Listens for which cell has been clicked
+    // Listens for selection of a numbered cell
     for (let cell of cells) {
         cell.addEventListener('click', function () {
 
@@ -33,6 +33,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Listens for selection of a button
+    for (let button of buttons) {
+        button.addEventListener('click', function () {
+
+            if (this.getAttribute('data-type') === 'newgame') {
+                setupGame();
+            };
+        });
+    }
 });
 
 let banner = document.getElementById('banner'); //Targets the info banner
@@ -40,6 +50,7 @@ let grid = document.getElementById('game-area'); //Targets the 4x4 grid
 let cells = grid.children; //Targets the 16 divs within the 4x4 grid
 let levelNum = document.getElementById('level'); //Targets the level counter
 let blocksNum = document.getElementById('blocks'); //Targets the block counter
+let buttons = document.getElementsByTagName('button'); //Targets the buttons
 
 let cellsUnavailable = []; //Array used to keep track of selected cells 
 let setupCheck; //Variable used to ensure correct setup at game launch
@@ -115,7 +126,7 @@ function cellSelect(col, row, val) {
         }
     }
 
-     //Increases level and limit (max 9) every 16 blocks cleared
+    //Increases level and limit (max 9) every 16 blocks cleared
     if (val == 4 && bloc % 16 == 0) {
         lev = lev + 1;
         levelNum.innerHTML = lev < 10 ? '0' + lev : lev;
