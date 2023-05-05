@@ -39,8 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
 
             if (this.getAttribute('data-type') === 'newgame') {
+                banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
                 setupGame();
-            };
+            } else {
+                rulesShow();
+            }
         });
     }
 });
@@ -65,16 +68,19 @@ let bloc; //Variable used to track number of blocks cleared
  */
 function setupGame() {
 
-    //Sets variables to intial values
+    //Sets variables and counters to intial values
+    endCheck = 0;
     cellsUnavailable = [];
     req = 1;
     lim = 5;
     lev = 1;
     bloc = 0;
-    endCheck = 0;
+    levelNum.innerHTML = '0' + lev;
+    blocksNum.innerHTML = '0' + bloc;
 
     do {
-        setupCheck = 0; //Resets check count        
+        setupCheck = 0;
+
         for (cell of cells) {
 
             let cellRef = 0; //Ensures no cells are greyed out during setup
