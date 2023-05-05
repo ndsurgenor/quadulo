@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let val = cell.innerHTML;
 
             //NB Banner messages should be 30 characters or fewer to fit comfortably on screen
-            if (endCheck == 16) { //No possible moves left
+            if (endCheck == 16) { //Cell slected when no possible moves left
                 banner.innerHTML = `<p>Click <span id="banner-ng">New Game</span> to start over</p>`;
             } else if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
                 banner.innerHTML = `<p>Block unavailable. Select a <span id="next">${req}</span></p>`;
@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let type = this.getAttribute('data-type');
 
-            if (type === 'newgame') {
+            if (type === 'newgame' && endCheck != 16) {
                 confirm.style.display = 'block';
                 rules.style.display = 'none';
-            } else if (type === 'yes') {
+            } else if (type === 'newgame' && endCheck == 16 || type === 'yes') {
                 banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
                 confirm.style.display = 'none';
                 setupGame();
