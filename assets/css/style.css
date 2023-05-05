@@ -98,6 +98,7 @@ button {
     letter-spacing: -0.5px;
     border: 1px solid dimgray;
     border-radius: 5px;
+    margin-top: 0.25rem;
     padding: 0.5rem 0.75rem;
 }
 
@@ -144,6 +145,11 @@ button:hover {
     #blocks {
         padding: 0.25rem;
     }
+
+    button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.5rem;
+}
 
     #design-info {
         font-size: 0.65rem;
