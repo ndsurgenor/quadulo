@@ -129,11 +129,11 @@ button:hover {
 }
 
 #rules-text {
-    background-color: whitesmoke;
     font-size: 0.95rem;
+    background-color: whitesmoke;    
     border: 2px solid dimgray;
     border-radius: 10px;
-    padding: 0.5rem;
+    padding: 0.75rem 0.5rem 1rem;
     margin-bottom: -28.5rem;
     top: -28.5rem;
 }
@@ -204,8 +204,9 @@ button:hover {
     }
 
     #rules-text {
-        font-size: 0.85rem;
-        top: -23rem;
+        font-size: 0.8rem;
+        top: -22.5rem;
+        padding-bottom: 0.75rem;
     }
 
     #confirmation {
