@@ -175,6 +175,10 @@ h1 {
     background-color: rebeccapurple;
 }
 
+#rules-text button {
+    margin-top: 0.75rem;
+}
+
 #confirmation {
     background-color: white;
     padding-bottom: 0.5rem;
