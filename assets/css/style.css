@@ -35,7 +35,7 @@ button:hover {
     cursor: pointer;
 }
 
-/* Game title */
+/* Game Title */
 h1 {
     font-family: 'MuseoModerno', sans-serif;
     font-size: 3.5rem;
@@ -43,7 +43,7 @@ h1 {
     margin-top: 1rem;
 }
 
-/* Game info */
+/* Game Info */
 #banner p {
     font-size: 1.35rem;
     display: inline-block;
@@ -114,7 +114,7 @@ h1 {
     padding: 0.25rem;
 }
 
-/* Hidden options */
+/* Hidden Options */
 #hidden-options {
     width: 20rem;
     height: 0;
@@ -193,12 +193,20 @@ h1 {
 /* Media queries for screens 350px and smaller */
 @media screen and (max-width: 350px) {
 
+    /* General */
+    button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.5rem;
+    }
+
+    /* Game Title */
     h1 {
         font-size: 2.75rem;
         line-height: 5rem;
         margin-top: 0rem;
     }
 
+    /* Game Info */
     #banner p {
         font-size: 1rem;
     }
@@ -207,12 +215,14 @@ h1 {
         padding: 0rem 0.3rem;
     }
 
+    /* 4x4 Grid */
     #game-area div {
         width: 3rem;
         height: 3rem;
         font-size: 2.35rem;
     }
 
+    /* Counters & Buttons */
     #counters p {
         font-size: 1rem;
         margin: 1rem 0.25rem;
@@ -223,11 +233,7 @@ h1 {
         padding: 0.25rem;
     }
 
-    button {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.5rem;
-    }
-
+    /* Hidden Options */
     #hidden-options {
         width: 16.5rem;
     }
@@ -238,11 +244,16 @@ h1 {
         padding-bottom: 0.75rem;
     }
 
+    #rules-text p {
+        line-height: 1rem;
+    }
+
     #confirmation {
         margin-bottom: -2.25rem;
         top: -2.25rem;
     }
 
+    /* Footer */
     #design-info {
         font-size: 0.7rem;
         line-height: 3rem;
