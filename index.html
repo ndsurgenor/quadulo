@@ -11,7 +11,7 @@
     <!-- Stylesheet Link and Tab Attributes -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-    <title>Quadulo - logic game</title>    
+    <title>Quadulo</title>
 </head>
 
 <body>
@@ -81,18 +81,18 @@
             <h3>Goal</h3>
             <p>Click as many blocks as you can before running out of possible moves.</p>
             <h3>Gameplay</h3>
-            <p>Blocks must be clicked in the repeated order <span class="rules-block rules-b1">1</span> <span
+            <p>Blocks must be clicked in the order <span class="rules-block rules-b1">1</span> <span
                     class="rules-block rules-b2">2</span> <span class="rules-block rules-b3">3</span> <span
-                    class="rules-block rules-b4">4</span>; blocks > <span class="rules-block rules-b4">4</span> cannot
-                be selected. All blocks in the same row and column will increase by the value of the selected block.
-                Selecting a block makes it unavailable until a <span class="rules-block rules-b1">1</span> is clicked
-                again.</p>
+                    class="rules-block rules-b4">4</span> (blocks <span class="rules-block rules-lim">5</span>
+                and higher cannot be selected). All blocks in the same row and column will increase by the value of the
+                selected block. Selecting a block makes it unavailable until a <span
+                    class="rules-block rules-b1">1</span> is clicked again.</p>
             <h3>Limits</h3>
             <p>Blocks will only ever increase as high as the current limit (initially set at <span
                     class="rules-block rules-lim">5</span>). If a block would increase beyond the limit its value rolls
                 back round to <span class="rules-block rules-b1">1</span> <span class="rules-block rules-b2">2</span>
-                <span class="rules-block rules-b3">3</span> etc. The limit will increase by 1 (to a maximum of <span
-                    class="rules-block rules-lim">9</span>) for every level progressed i.e. every 16 blocks cleared.
+                <span class="rules-block rules-b3">3</span> etc. The level and limit will increase by 1 (maximum limit
+                of <span class="rules-block rules-lim">9</span>) for every 16 blocks cleared.
             </p>
             <button data-type="got-it"><i class="fa-solid fa-thumbs-up"></i> OK - Got it!</button>
         </div>
