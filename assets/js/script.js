@@ -1,3 +1,24 @@
+//Constants & Variables
+const banner = document.getElementById('banner'); //Targets the info banner
+const grid = document.getElementById('game-area'); //Targets the 4x4 grid 
+const cells = grid.children; //Targets the 16 divs within the 4x4 grid
+const levelNum = document.getElementById('level'); //Targets the level counter
+const blocksNum = document.getElementById('blocks'); //Targets the block counter
+const buttons = document.getElementsByTagName('button'); //Targets the buttons
+const confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
+const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
+
+let cellsUnavailable = []; //Array used to keep track of selected cells 
+let setupCheck; //Variable used to ensure correct setup at game launch
+let endCheck; //Variable used to determine if the player is out of moves
+let req; //Variable used to ensure cells are selected in the correct order
+let lim; //Variable used to set upper value of cells
+let lev; //Variable used to track game level
+let bloc; //Variable used to track number of blocks cleared
+
+/**
+ * Cell and button listeners for click events. 
+ */
 document.addEventListener('DOMContentLoaded', function () {
 
     setupGame();
@@ -58,23 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
-let banner = document.getElementById('banner'); //Targets the info banner
-let grid = document.getElementById('game-area'); //Targets the 4x4 grid 
-let cells = grid.children; //Targets the 16 divs within the 4x4 grid
-let levelNum = document.getElementById('level'); //Targets the level counter
-let blocksNum = document.getElementById('blocks'); //Targets the block counter
-let buttons = document.getElementsByTagName('button'); //Targets the buttons
-let confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
-let rules = document.getElementById('rules-text'); //Targets the hidden rules text div
-
-let cellsUnavailable = []; //Array used to keep track of selected cells 
-let setupCheck; //Variable used to ensure correct setup at game launch
-let endCheck; //Variable used to determine if the player is out of moves
-let req; //Variable used to ensure cells are selected in the correct order
-let lim; //Variable used to set upper value of cells
-let lev; //Variable used to track game level
-let bloc; //Variable used to track number of blocks cleared
 
 /**
  * Sets up the initial game state. 
