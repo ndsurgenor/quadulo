@@ -22,7 +22,7 @@ button {
     font-size: 1rem;
     letter-spacing: -0.5px;
     color: rebeccapurple;
-    background-color: whitesmoke;    
+    background-color: whitesmoke;
     border: 1px solid dimgray;
     border-radius: 5px;
     margin-top: 0.25rem;
@@ -56,7 +56,7 @@ h1 {
 #limit {
     font-weight: bolder;
     color: whitesmoke;
-    border: 1px solid dimgray;        
+    border: 1px solid dimgray;
     border-radius: 5px;
     padding: 0rem 0.4rem;
 }
@@ -74,12 +74,12 @@ h1 {
     width: fit-content;
     height: fit-content;
     background-color: lightblue;
-    border-radius: 15px;    
+    border-radius: 15px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 0.5rem;
     margin: auto;
-    padding: 0.65rem;  
+    padding: 0.65rem;
 }
 
 #game-area div {
@@ -197,6 +197,33 @@ h1 {
     position: relative;
 }
 
+/* 404 Page */
+#error-message h2 {
+    font-size: 3.25rem;
+    margin: 1rem;
+}
+
+.error-block {
+    color: whitesmoke;
+    background-color: royalblue;
+    border: 2px solid dimgray;
+    border-radius: 10px;
+    cursor: not-allowed;
+    padding: 0rem 0.85rem;
+    margin: 0.25rem;
+}
+
+#error-message h3 {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+#error-message a:hover {
+    color: whitesmoke;
+    background-color: rebeccapurple;
+    text-decoration: none;
+}
+
 /* Media queries for screens 350px and smaller */
 @media screen and (max-width: 350px) {
 
@@ -267,4 +294,17 @@ h1 {
         font-size: 0.7rem;
         line-height: 3rem;
     }
+
+    /* 404 page */
+    #error-message h2 {
+        font-size: 2.5rem;
+    }
+
+    .error-block {
+        padding: 0rem 0.75rem;
+    }
+    
+    #error-message p {
+        font-size: 0.85rem;
+    }    
 }
