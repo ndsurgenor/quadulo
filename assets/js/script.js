@@ -77,10 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 setupGame();
             } else if (type === 'no') {
                 confirm.style.display = 'none';
-            } else if (type === 'rules') {
-                rules.style.display = 'block';
+            } else if (type === 'rules') {                
+                grid.style.animation = 'none';
                 over.style.display = 'none';
                 confirm.style.display = 'none';
+                rules.style.display = 'block';
             } else if (type === 'got-it') {
                 rules.style.display = 'none';
             } else if (type === 'view-grid') {
