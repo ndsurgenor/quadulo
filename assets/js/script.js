@@ -70,15 +70,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 rules.style.display = 'none';
             } else if (type === 'new-game' && endCheck == 16 || type === 'yes') {
                 banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
+                over.style.display = 'none';
                 confirm.style.display = 'none';
                 setupGame();
             } else if (type === 'no') {
                 confirm.style.display = 'none';
             } else if (type === 'rules') {
                 rules.style.display = 'block';
+                over.style.display = 'none';
                 confirm.style.display = 'none';
             } else if (type === 'got-it') {
                 rules.style.display = 'none';
+            } else if (type === 'view-grid') {
+                over.style.display = 'none';
             }
         });
     }

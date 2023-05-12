@@ -141,9 +141,20 @@ h1 {
 
 /* Game Over Message */
 #game-over {
-    width: 15rem;
+    width: 15.75rem;
     margin: auto;
     top: -19.25rem;
+    animation: reveal 1.5s;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Rules Text */
@@ -282,6 +293,12 @@ h1 {
     /* Hidden Options */
     #hidden-options {
         width: 16.5rem;
+    }
+
+    /* Game Over Message */
+    #game-over {
+        width: 10.75rem;
+        top: -17rem;
     }
 
     /* Rules Text */
