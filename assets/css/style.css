@@ -122,32 +122,34 @@ h1 {
     margin: auto;
 }
 
+#game-over,
 #confirmation,
 #rules-text {
+    display: none;
     position: relative;
     z-index: 1;
 }
 
-/* Rules Text */
+#game-over,
 #rules-text {
     font-size: 0.95rem;
     background-color: whitesmoke;
     border: 2px solid dimgray;
     border-radius: 10px;
     padding: 0.75rem 0.5rem 1rem;
-    margin-bottom: -28.5rem;
-    top: -28.5rem;
 }
 
-/* NB only activates on page load */
-@keyframes rules-reveal {
-    from {
-        opacity: 0;
-    }
+/* Game Over Message */
+#game-over {
+    width: 15rem;
+    margin: auto;
+    top: -19.25rem;
+}
 
-    to {
-        opacity: 1;
-    }
+/* Rules Text */
+#rules-text {
+    margin-bottom: -28.5rem;
+    top: -28.5rem;
 }
 
 #rules-text h3 {
@@ -193,7 +195,6 @@ h1 {
 
 /* New Game Confirmation */
 #confirmation {
-    display: none;
     background-color: white;
     padding-bottom: 0.5rem;
     margin-bottom: -2.65rem;

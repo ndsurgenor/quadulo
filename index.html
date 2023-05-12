@@ -59,24 +59,24 @@
             <p>Blocks cleared <span id="blocks">00</span></p>
         </div>
         <div id="buttons">
-            <button data-type="new-game" id="new">
-                <p></p><i class="fa-solid fa-square-caret-right"></i> New Game</p>
-            </button>
-            <button data-type="rules">
-                <p><i class="fa-solid fa-square-poll-horizontal"></i> Rules</p>
-            </button>
+            <button data-type="new-game" id="new"><i class="fa-solid fa-square-caret-right"></i> New Game</button>
+            <button data-type="rules"><i class="fa-solid fa-square-poll-horizontal"></i> Rules</button>
         </div>
     </section>
 
     <!-- Hidden Text (only displayed when certain options are selected) -->
     <section id="hidden-options">
+        <div id="game-over">
+            <h2>GAME OVER</h2>
+            <button data-type="view-grid"><i class="fa-solid fa-eye"></i></i> View Grid</button>
+            <button data-type="new-game" id="new"><i class="fa-solid fa-square-caret-right"></i> New Game</button>
+        </div>
         <div id="confirmation">
             <p>Really start over?
                 <button data-type="yes"><i class="fa-solid fa-square-check"></i> Yes</button>
                 <button data-type="no"><i class="fa-solid fa-square-xmark"></i> No</button>
             </p>
         </div>
-        <!-- Will display on page load but remain hidden unless user clicks relevant button -->
         <div id="rules-text">
             <h2>Rules</h2>
             <h3>Goal</h3>

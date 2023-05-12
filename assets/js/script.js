@@ -6,6 +6,7 @@ const counters = document.getElementById('counters'); //Targets the level and bl
 const levelNum = document.getElementById('level'); //Targets the level counter
 const blocksNum = document.getElementById('blocks'); //Targets the block counter
 const buttons = document.getElementsByTagName('button'); //Targets the buttons
+const over = document.getElementById('game-over');  //Targets the hidden game over div
 const confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
 const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
 
@@ -23,7 +24,6 @@ let bloc; //Variable used to track number of blocks cleared
  */
 document.addEventListener('DOMContentLoaded', function () {
 
-    rules.style.animation = 'rules-reveal 1s';
     setupGame();    
 
     // Listens for selection of a numbered cell
@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 cellSelect(col, row, val); //Required value selected
                 if (endCheck == 16) {
-                    banner.innerHTML = `<p><span id="next">${req}</span> unavailable: GAME OVER</p>`;
+                    banner.innerHTML = `<p>Required <span id="next">${req}</span> is unavailable</p>`;
+                    over.style.display = 'block';
                 } else {
                     endCheck = 0;
                     banner.innerHTML = `<p>Next <span id="next">${req}</span></p>
@@ -74,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (type === 'no') {
                 confirm.style.display = 'none';
             } else if (type === 'rules') {
-                rules.style.animation = 'none';
                 rules.style.display = 'block';
                 confirm.style.display = 'none';
             } else if (type === 'got-it') {
