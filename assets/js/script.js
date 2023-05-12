@@ -8,9 +8,10 @@ const buttons = document.getElementsByTagName('button'); //Targets the buttons
 const confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
 const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
 
-let cellsUnavailable = []; //Array used to keep track of selected cells 
+let cellsUnavailable = []; //Array used to keep track of selected cells
 let setupCheck; //Variable used to ensure correct setup at game launch
 let endCheck; //Variable used to determine if the player is out of moves
+let cell; //Variable used to define a single cell within the grid
 let req; //Variable used to ensure cells are selected in the correct order
 let lim; //Variable used to set upper value of cells
 let lev; //Variable used to track game level
@@ -61,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let type = this.getAttribute('data-type');
 
-            if (type === 'newgame' && endCheck != 16) {
+            if (type === 'new-game' && endCheck != 16) {
                 confirm.style.display = 'block';
                 rules.style.display = 'none';
-            } else if (type === 'newgame' && endCheck == 16 || type === 'yes') {
+            } else if (type === 'new-game' && endCheck == 16 || type === 'yes') {
                 banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
                 confirm.style.display = 'none';
                 setupGame();
