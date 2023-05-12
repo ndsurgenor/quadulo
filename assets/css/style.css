@@ -82,6 +82,17 @@ h1 {
     padding: 0.65rem;
 }
 
+/* NB only runs when Game Over message displays */
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
 #game-area div {
     width: 4.25rem;
     height: 4.25rem;
@@ -141,9 +152,9 @@ h1 {
 
 /* Game Over Message */
 #game-over {
-    width: 15.75rem;
+    width: 13rem;
     margin: auto;
-    top: -19.25rem;
+    top: -20.5rem;
     animation: reveal 1.5s;
 }
 

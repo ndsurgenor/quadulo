@@ -6,7 +6,7 @@ const counters = document.getElementById('counters'); //Targets the level and bl
 const levelNum = document.getElementById('level'); //Targets the level counter
 const blocksNum = document.getElementById('blocks'); //Targets the block counter
 const buttons = document.getElementsByTagName('button'); //Targets the buttons
-const over = document.getElementById('game-over');  //Targets the hidden game over div
+const over = document.getElementById('game-over'); //Targets the hidden game over div
 const confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
 const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
 
@@ -24,7 +24,7 @@ let bloc; //Variable used to track number of blocks cleared
  */
 document.addEventListener('DOMContentLoaded', function () {
 
-    setupGame();    
+    setupGame();
 
     // Listens for selection of a numbered cell
     for (let cell of cells) {
@@ -46,10 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 bannerStyle(req);
             } else {
                 cellSelect(col, row, val); //Required value selected
-                if (endCheck == 16) {
+                if (endCheck == 16) { //Game Over state
                     banner.innerHTML = `<p>Required <span id="next">${req}</span> is unavailable</p>`;
+                    grid.style.animation = '1s fade forwards';
                     over.style.display = 'block';
-                } else {
+                } else { //Game continues
                     endCheck = 0;
                     banner.innerHTML = `<p>Next <span id="next">${req}</span></p>
                                     <p>Limit <span id="limit">${lim}</span></p>`;
@@ -70,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 rules.style.display = 'none';
             } else if (type === 'new-game' && endCheck == 16 || type === 'yes') {
                 banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
+                grid.style.animation = 'none';
                 over.style.display = 'none';
                 confirm.style.display = 'none';
                 setupGame();
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (type === 'got-it') {
                 rules.style.display = 'none';
             } else if (type === 'view-grid') {
+                grid.style.animation = 'none';
                 over.style.display = 'none';
             }
         });
