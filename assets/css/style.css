@@ -124,7 +124,6 @@ h1 {
 
 #confirmation,
 #rules-text {
-    display: none;
     position: relative;
     z-index: 1;
 }
@@ -138,6 +137,17 @@ h1 {
     padding: 0.75rem 0.5rem 1rem;
     margin-bottom: -28.5rem;
     top: -28.5rem;
+}
+
+/* NB only activates on page load */
+@keyframes rules-reveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 #rules-text h3 {
@@ -183,6 +193,7 @@ h1 {
 
 /* New Game Confirmation */
 #confirmation {
+    display: none;
     background-color: white;
     padding-bottom: 0.5rem;
     margin-bottom: -2.65rem;
@@ -303,8 +314,8 @@ h1 {
     .error-block {
         padding: 0rem 0.75rem;
     }
-    
+
     #error-message p {
         font-size: 0.85rem;
-    }    
+    }
 }

@@ -2,6 +2,7 @@
 const banner = document.getElementById('banner'); //Targets the info banner
 const grid = document.getElementById('game-area'); //Targets the 4x4 grid 
 const cells = grid.children; //Targets the 16 divs within the 4x4 grid
+const counters = document.getElementById('counters'); //Targets the level and block info
 const levelNum = document.getElementById('level'); //Targets the level counter
 const blocksNum = document.getElementById('blocks'); //Targets the block counter
 const buttons = document.getElementsByTagName('button'); //Targets the buttons
@@ -22,7 +23,8 @@ let bloc; //Variable used to track number of blocks cleared
  */
 document.addEventListener('DOMContentLoaded', function () {
 
-    setupGame();
+    rules.style.animation = 'rules-reveal 1s';
+    setupGame();    
 
     // Listens for selection of a numbered cell
     for (let cell of cells) {
@@ -72,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (type === 'no') {
                 confirm.style.display = 'none';
             } else if (type === 'rules') {
+                rules.style.animation = 'none';
                 rules.style.display = 'block';
                 confirm.style.display = 'none';
             } else if (type === 'got-it') {
