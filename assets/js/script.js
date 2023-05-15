@@ -7,6 +7,8 @@ const levelNum = document.getElementById('level'); //Targets the level counter
 const blocksNum = document.getElementById('blocks'); //Targets the block counter
 const buttons = document.getElementsByTagName('button'); //Targets the buttons
 const over = document.getElementById('game-over'); //Targets the hidden game over div
+const levelBest = document.getElementById('level-best'); //Targets the level counter
+const blocksBest = document.getElementById('blocks-best'); //Targets the block counter
 const confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
 const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
 
@@ -18,6 +20,8 @@ let req; //Variable used to ensure cells are selected in the correct order
 let lim; //Variable used to set upper value of cells
 let lev; //Variable used to track game level
 let bloc; //Variable used to track number of blocks cleared
+let levHigh; //Variable used to track highest level achieved
+let blocHigh; //Variable used to track highest number of blocks cleared
 
 /**
  * Cell and button listeners for click events. 
@@ -25,6 +29,8 @@ let bloc; //Variable used to track number of blocks cleared
 document.addEventListener('DOMContentLoaded', function () {
 
     setupGame();
+    levHigh = 0;
+    blocHigh = 0;
 
     // Listens for selection of a numbered cell
     for (let cell of cells) {
@@ -47,8 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 cellSelect(col, row, val); //Required value selected
                 if (endCheck == 16) { //Game Over state
+                    recordBest(lev, bloc);
                     banner.innerHTML = `<p>Required <span id="next">${req}</span> is unavailable</p>`;
-                    grid.style.animation = '1s fade forwards';
+                    grid.style.animation = '1.5s fade forwards';
                     over.style.display = 'block';
                 } else { //Game continues
                     endCheck = 0;
@@ -77,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setupGame();
             } else if (type === 'no') {
                 confirm.style.display = 'none';
-            } else if (type === 'rules') {                             
+            } else if (type === 'rules') {
                 over.style.display = 'none';
                 confirm.style.display = 'none';
                 rules.style.display = 'block';
@@ -226,5 +233,17 @@ function cellStyle(req, cellVal, cellRef) {
         cell.style.color = 'white';
         cell.style.backgroundColor = 'gainsboro';
         cell.style.cursor = 'not-allowed';
+    }
+}
+
+/**
+ * Checks for a new highscore and, if found, records it on screen
+ */
+function recordBest(lev, bloc) {
+    if (bloc > blocHigh) {
+        levHigh = lev;
+        blocHigh = bloc;
+        levelBest.innerHTML = levHigh;
+        blocksBest.innerHTML = blocHigh;
     }
 }
