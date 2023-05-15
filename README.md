@@ -29,16 +29,29 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
 
 - __Title__
 
-  - Featured at the very top of the index and 404 pages, the title is centrally placed to emphasise the name and branding of the game.
-  - A navigation bar. 
+  - Featured at the top of the index and 404 pages, the title is centrally placed to emphasise the name and branding of the game.
+  - Clicking the logo will not refresh/redirect the page as this would interupt the game experience.
+  - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of a clickable grid/buttons.
+  - A text banner under the title provides useful feedback to the user as to the immediate state of the game.
 
-![Title](assets/images/readme/info_banner.png)
+![Title & Info](assets/images/title_and_info.png)
 
 - __Info Banner__
 
-  - ???
+  - At the outset of the game, the banner instructs the user saying 'Click any 1 to begin' [Fig A].
+  - In the course of normal game play, the banner will show which number must be selected next alongside the current upper limit [Fig B].
+  - Clicking an unavailable block (empty or greyed-out) will display the message 'Block unavailable. Select a {required number}' [Fig C].
+  - Clicking an incorrect number will display the message 'Next number must be {required number}' [Fig D].
+  - When no more moves are possible i.e. the required number is not available, the text displays 'Required {required number} is unavailable' [Fig E].
+  - If the user tries to select a block when the game is over, the message 'Click New Game to start over' appears as a reminder [Fig F].
+  - Messages are formatted consitently with colours and styles of blocks/buttons in the game area (see following).
 
-![Info Banner](assets/images/readme/info_banner.png)
+![Info Banner A](assets/images/info_banner_a.png)
+![Info Banner B](assets/images/info_banner_b.png)
+![Info Banner C](assets/images/info_banner_c.png)
+![Info Banner D](assets/images/info_banner_d.png)
+![Info Banner E](assets/images/info_banner_e.png)
+![Info Banner F](assets/images/info_banner_f.png)
 
 - __Game Area__
 
