@@ -175,6 +175,10 @@ h1 {
     margin: 0.1rem 0rem 0.75rem;
 }
 
+.fa-medal {
+    color: goldenrod;
+}
+
 .high-score {
     display: inline-block;
     font-size: 1.2rem;

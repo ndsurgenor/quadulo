@@ -7,8 +7,9 @@ const levelNum = document.getElementById('level'); //Targets the level counter
 const blocksNum = document.getElementById('blocks'); //Targets the block counter
 const buttons = document.getElementsByTagName('button'); //Targets the buttons
 const over = document.getElementById('game-over'); //Targets the hidden game over div
-const levelBest = document.getElementById('level-best'); //Targets the level counter
-const blocksBest = document.getElementById('blocks-best'); //Targets the block counter
+const scoreMessage = document.getElementById('score-message'); //Targets high score message 
+const levelBest = document.getElementById('level-best'); //Targets the high score level display
+const blocksBest = document.getElementById('blocks-best'); //Targets the high score block display
 const confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
 const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
 
@@ -184,8 +185,11 @@ function recordBest(lev, bloc) {
     if (bloc > blocHigh) {
         levHigh = lev;
         blocHigh = bloc;
+        scoreMessage.innerHTML = '<i class="fa-solid fa-medal"></i> New High Score!';
         levelBest.innerHTML = levHigh < 10 ? '0' + levHigh : levHigh;
         blocksBest.innerHTML = blocHigh < 10 ? '0' + blocHigh : blocHigh;
+    } else {
+        scoreMessage.innerHTML = 'Current High Score';
     }
 }
 
