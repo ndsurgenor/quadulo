@@ -10,7 +10,7 @@ The main aims of the site are as follows:
 - to provide a game which becomes more diffcult as it progresses so as to engage the user
 - to present a game whiere the graphic design provides clear feedback and complements the gameplay
 
-![Overview](assets/images/overview.png)
+![Overview](assets/images/readme_file/overview.png)
 
 ## Initial Development
 
@@ -32,9 +32,9 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
   - Placed at the top of the index and 404 pages, the title is centrally located to emphasise the name and branding of the game.
   - Clicking the logo will not refresh/redirect the page as this would interupt the game experience.
   - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of a clickable grid/buttons.
-  - A text banner under the title provides useful feedback to the user as to the immediate state of the game.
+  - A text banner under the title provides useful feedback to the user as to the current state of the game.
 
-![Title & Info](assets/images/title_and_info.png)
+![Title & Info](assets/images/readme_file/title_and_info.png)
 
 - __Info Banner__
 
@@ -46,12 +46,12 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
   - If the user tries to select a block when the game is over, the message 'Click New Game to start over' appears as a reminder [Fig F].
   - Messages are formatted consitently with colours and styles of blocks/buttons in the game area (see following).
 
-![Info Banner A](assets/images/info_banner_a.png)
-![Info Banner B](assets/images/info_banner_b.png)
-![Info Banner C](assets/images/info_banner_c.png)
-![Info Banner D](assets/images/info_banner_d.png)
-![Info Banner E](assets/images/info_banner_e.png)
-![Info Banner F](assets/images/info_banner_f.png)
+![Info Banner A](assets/images/readme_file/info_banner_a.png)
+![Info Banner B](assets/images/readme_file/info_banner_b.png)
+![Info Banner C](assets/images/readme_file/info_banner_c.png)
+![Info Banner D](assets/images/readme_file/info_banner_d.png)
+![Info Banner E](assets/images/readme_file/info_banner_e.png)
+![Info Banner F](assets/images/readme_file/info_banner_f.png)
 
 - __Game Area__
 
@@ -64,43 +64,70 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
   - When using a mouse, hovering over a particular block will provide feedback to the user by highlighting its border.
   - Cursor styles are also used provide feedback: a 'pointer/hand' for available blocks and a 'not allowed' style for those which are unavailable.
 
-![Game Area](assets/images/game_area.png)
+![Game Area](assets/images/readme_file/game_area.png)
 
 - __Level & Block Counters__
 
-  - ???
+  - Feedback regarding progress is given via the 'Level' and 'Blocks cleared' counters located under the grid.
+  - For every 16 blocks cleared the Level counter increases by one giving the user a short term goal and keeping them engaged.
+  - This level increase also corresponds to the increase of the limit displayed in the info banner (up to a maximum of 9).
 
-![Level & Block Counters](assets/images/counters.png)
+![Level & Block Counters](assets/images/readme_file/counters.png)
 
 - __New Game & Rules Buttons__
 
-  - ???
+  - These buttons (indeed all within the game) are formatted so as to change their visual style when hovered over.
+  - Icons used in conjunction with the button text provide a visual metaphor for the user as to their function.
+  - The 'New Game' button allows the user to abandon their current game and start afresh.
+  - When 'New Game' is selected, a confirmation dialog will appear so that the current game is not interupted accidentally.
+  - This dialog does not appear when 'New Game' is clicked alongside the 'GAME OVER' message allowing the user to start a new game immediately.
+  - The 'Rules' button displays the rules text over the main game area.  
 
-![New Game & Rules Buttons](assets/images/buttons.png)
+![New Game & Rules Buttons](assets/images/readme_file/buttons.png)
+![Confirmation Dialog](assets/images/readme_file/confirmation.png)
 
 - __Rules__ 
 
-  - ???
+  - Various headers and paragraphs help to orgnaise and divide up what is a substansial amount of text for the user.
+  - The main aim of the game is clearly stated at the top of the rules text so the user knows immediately what they are trying to achieve.
+  - The rest of the text is split into two sections to make it more readable and easier to internalise.
+  - References to blocks within the text are formatted in the same way as they appear in the game itself giving a visual consistency.
+  - A button with text and accompanying icon appears at the bottom of the text as a means of closing the dialog.
 
-![Rules](assets/images/rules.png)
+![Rules](assets/images/readme_file/rules.png)
 
 - __Game Over Message__
 
-  - ???
+  - When no more moves are available, the user is alerted via an animated 'GAME OVER' window.
+  - The main game area utilises a fade animation (in reverse) at the same time to further highlight that the game is over.
+  - The 'GAME OVER' window either informs the user of the current high score or that they have achieved a new high score.
+  - A short paragraph informs the user that their high scores are only tracked while the browser remains unrefreshed.
+  - A 'View Grid' button allows the user to see the final grid state before starting a new game.
+  - The 'New Game' button within the dialog functions in the same manner as to that below the grid.
 
-![Game Over Message](assets/images/game_over.png)
+![Game Over Message](assets/images/readme_file/game_over.png)
+![New High Score](assets/images/readme_file/new_high_score.png)
+
+- __Footer__
+
+  - The footer provides a vistor to the site with copyright info for the design and coding of the game.
+
+![Footer](assets/images/readme_file/footer.png)
 
 - __404 Page__
 
-  - ???
+  - A stylised 404 page is presented to the user if they enter an incorrect web address
+  - The error page is styled to match the elements and text of the game.
+  - A link allows the user to immediately mavigate to the correct page and play the game.
+  - If the user does not use the link, the page will automatically redirect to the main page after a short number of seconds.
 
-![404 Page](assets/images/404.png)
+![404 Page](assets/images/readme_file/404.png)
 
 ### Features to Implement
 
 The following are ideas which can be implemented into the site at a later time (when skillset allows):
-- Add a highscores button and overlay which stores usernames and progession to a back-end database allowing users to compare their scores with all visitors to the site.
-- Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar
+- Add the ability to save highscores and usernames to a back-end database allowing users to compare their scores with all visitors to the site.
+- Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar.
 
 ## Testing
 
