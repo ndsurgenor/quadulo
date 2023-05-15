@@ -140,10 +140,10 @@ The following are ideas which can be implemented into the site at a later time (
 ### Validator Testing 
 
 - HTML: No errors were returned when passing each HTML page through the official W3C HTML validator
-  - [index.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Ffriends-of-belvoir-park%2Findex.html)
-  - [404.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Ffriends-of-belvoir-park%2Fevents.html)
-- CSS: No errors were found when passing 'style.css' through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fndsurgenor.github.io%2Ffriends-of-belvoir-park%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-- JS: No errors were found when passing 'script.js' through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fndsurgenor.github.io%2Ffriends-of-belvoir-park%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [index.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2Findex.html)
+  - [404.html](https://validator.w3.org/nu/?doc=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo%2F404.html)
+- CSS: No errors were found when passing 'style.css' through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fndsurgenor.github.io%2Fquadulo&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- JS: No errors were found when passing 'script.js' through the [JSHint Validator](https://jshint.com/)
 - Performance & Accessibility: A high accessibility score of 97/100 was confirmed using Lighthouse in Chrome Developer Tools for both mobile and desktop sites.
 
   ![Lighthouse Report](assets/images/readme/lighthouse.png)

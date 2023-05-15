@@ -2,7 +2,6 @@
 const banner = document.getElementById('banner'); //Targets the info banner
 const grid = document.getElementById('game-grid'); //Targets the 4x4 grid 
 const cells = grid.children; //Targets the 16 divs within the 4x4 grid
-const counters = document.getElementById('counters'); //Targets the level and block info
 const levelNum = document.getElementById('level'); //Targets the level counter
 const blocksNum = document.getElementById('blocks'); //Targets the block counter
 const buttons = document.getElementsByTagName('button'); //Targets the buttons
@@ -10,7 +9,7 @@ const over = document.getElementById('game-over'); //Targets the hidden game ove
 const scoreMessage = document.getElementById('score-message'); //Targets high score message 
 const levelBest = document.getElementById('level-best'); //Targets the high score level display
 const blocksBest = document.getElementById('blocks-best'); //Targets the high score block display
-const confirm = document.getElementById('confirmation'); //Targets the hidden confirmation div
+const confirmation = document.getElementById('confirmation'); //Targets the hidden confirmation div
 const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
 
 let cellsUnavailable = []; //Array used to keep track of selected cells
@@ -75,19 +74,19 @@ document.addEventListener('DOMContentLoaded', function () {
             let type = this.getAttribute('data-type');
 
             if (type === 'new-game' && endCheck != 16) {
-                confirm.style.display = 'block';
+                confirmation.style.display = 'block';
                 rules.style.display = 'none';
             } else if (type === 'new-game' && endCheck == 16 || type === 'yes') {
                 banner.innerHTML = `<h2>Click any <span id="next">1</span> to begin</h2>`;
                 grid.style.animation = 'none';
                 over.style.display = 'none';
-                confirm.style.display = 'none';
+                confirmation.style.display = 'none';
                 setupGame();
             } else if (type === 'no') {
-                confirm.style.display = 'none';
+                confirmation.style.display = 'none';
             } else if (type === 'rules') {
                 over.style.display = 'none';
-                confirm.style.display = 'none';
+                confirmation.style.display = 'none';
                 rules.style.display = 'block';
             } else if (type === 'got-it') {
                 grid.style.animation = 'none';
@@ -146,7 +145,7 @@ function cellSelect(col, row, val) {
 
     let cellMarker = col + row;
     cellsUnavailable.push(cellMarker); //Makes selected cell unavailable
-    req == 4 ? req = 1 : ++req;
+    req = req == 4 ? 1 : ++req;
     bloc = ++bloc;
     blocksNum.innerHTML = bloc < 10 ? '0' + bloc : bloc;
 
@@ -157,11 +156,11 @@ function cellSelect(col, row, val) {
         let currentVal = cell.innerHTML;
 
         if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell                              
-            newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-            newVal > lim ? cell.innerHTML = newVal - lim : cell.innerHTML = newVal; //Uses modular sum to lim as upper value                       
+            let newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
+            cell.innerHTML = newVal > lim ? newVal - lim : newVal; //Uses modular sum to lim as upper value                       
         }
 
-        cellVal = cell.innerHTML;
+        let cellVal = cell.innerHTML;
         cellStyle(req, cellVal, cellRef);
 
         if (cellVal != req || cellsUnavailable.includes(cellRef)) {
@@ -173,7 +172,7 @@ function cellSelect(col, row, val) {
     if (val == 4 && bloc % 16 == 0) {
         lev = ++lev;
         levelNum.innerHTML = lev < 10 ? '0' + lev : lev;
-        lim < 9 ? ++lim : lim = 9;
+        lim = lim < 9 ? ++lim : 9;
     }
 }
 
