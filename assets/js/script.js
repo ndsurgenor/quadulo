@@ -1,6 +1,6 @@
 //Constants & Variables
 const banner = document.getElementById('banner'); //Targets the info banner
-const grid = document.getElementById('game-area'); //Targets the 4x4 grid 
+const grid = document.getElementById('game-grid'); //Targets the 4x4 grid 
 const cells = grid.children; //Targets the 16 divs within the 4x4 grid
 const counters = document.getElementById('counters'); //Targets the level and block info
 const levelNum = document.getElementById('level'); //Targets the level counter
@@ -44,24 +44,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //NB Banner messages should be 30 characters or fewer to fit comfortably on screen
             if (endCheck == 16) { //Cell slected when no possible moves left
-                banner.innerHTML = `<p>Click <span id="banner-ng">New Game</span> to start over</p>`;
+                banner.innerHTML = `<h2>Click <span id="banner-ng">New Game</span> to start over</h2>`;
             } else if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
-                banner.innerHTML = `<p>Block unavailable. Select a <span id="next">${req}</span></p>`;
+                banner.innerHTML = `<h2>Block unavailable. Select a <span id="next">${req}</span></h2>`;
                 bannerStyle(req);
             } else if (val != req) { //Incorrect value selected
-                banner.innerHTML = `<p>Next number must be <span id="next">${req}</span></p>`;
+                banner.innerHTML = `<h2>Next number must be <span id="next">${req}</span></h2>`;
                 bannerStyle(req);
             } else {
                 cellSelect(col, row, val); //Required value selected
                 if (endCheck == 16) { //Game Over state
                     recordBest(lev, bloc);
-                    banner.innerHTML = `<p>Required <span id="next">${req}</span> is unavailable</p>`;
+                    banner.innerHTML = `<h2>Required <span id="next">${req}</span> is unavailable</h2>`;
                     grid.style.animation = '1.5s fade forwards';
                     over.style.display = 'block';
                 } else { //Game continues
                     endCheck = 0;
-                    banner.innerHTML = `<p>Next <span id="next">${req}</span></p>
-                                    <p>Limit <span id="limit">${lim}</span></p>`;
+                    banner.innerHTML = `<h2>Next <span id="next">${req}</span></h2>
+                                    <h2>Limit <span id="limit">${lim}</span></h2>`;
                 }
                 bannerStyle(req);
             }
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirm.style.display = 'block';
                 rules.style.display = 'none';
             } else if (type === 'new-game' && endCheck == 16 || type === 'yes') {
-                banner.innerHTML = `<p>Click any <span id="next">1</span> to begin</p>`;
+                banner.innerHTML = `<h2>Click any <span id="next">1</span> to begin</h2>`;
                 grid.style.animation = 'none';
                 over.style.display = 'none';
                 confirm.style.display = 'none';

@@ -126,7 +126,7 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
 ### Features to Implement
 
 The following are ideas which can be implemented into the site at a later time (when skillset allows):
-- Add the ability to save highscores and usernames to a back-end database allowing users to compare their scores with all visitors to the site.
+- Add the ability to save highscores and usernames to a back-end server allowing users to compare their scores with all visitors to the site.
 - Add keyboard navigation for desktop users allowing them to move around the grid using WASD/arrow keys and select blocks using Spacebar.
 
 ## Testing
@@ -135,7 +135,7 @@ The following are ideas which can be implemented into the site at a later time (
 - This site has been tested for responsiveness in 'real-world' contexts by viewing the site on widescreen desktop and laptop setups, medium-screen tablets, and smaller-screen smartphone devices.
 - This site has also been tested for responsiveness on various browsers including Chrome, Firefox, Edge and Safari.
 - Buttons and links have been tested to ensure that they fufil the correct functions/direct to the correct page.
-- Text and graphics have been tested to ensure that they resize/reorder correctly at various screen sizes.
+- Text, graphics and grid/dialog boxes have been tested to ensure that they resize correctly on smaller screens.
 
 ### Validator Testing 
 
@@ -150,7 +150,7 @@ The following are ideas which can be implemented into the site at a later time (
 
 ### Fixed Bugs
 
-- The *Why Join Us?* section of index.html did not intially show content in the correct order when using smaller screen sizes. This was solved by reordering the content within the code then floating the contents right as well using a series of nested divs.
+- ???
 
 ### Unfixed Bugs
 

@@ -13,6 +13,7 @@ body {
     text-align: center;
 }
 
+h2,
 body,
 button {
     font-family: 'Varela Round', sans-serif;
@@ -45,8 +46,9 @@ h1 {
 }
 
 /* Game Info */
-#banner p {
+#banner h2 {
     font-size: 1.35rem;
+    font-weight: normal;
     display: inline-block;
     margin: 0rem 0.2rem;
     padding-bottom: 0.75rem;
@@ -70,7 +72,7 @@ h1 {
 }
 
 /* 4x4 Grid */
-#game-area {
+#game-grid {
     width: fit-content;
     height: fit-content;
     background-color: lightblue;
@@ -93,7 +95,7 @@ h1 {
     }
 }
 
-#game-area div {
+#game-grid div {
     width: 4.25rem;
     height: 4.25rem;
     font-size: 3.5rem;
@@ -105,9 +107,9 @@ h1 {
 }
 
 
-#game-area div:hover {
+#game-grid div:hover {
     border: 3px solid whitesmoke;
-    cursor: hand;
+    cursor: pointer;
 }
 
 /* Counters & Buttons */
@@ -312,7 +314,7 @@ h1 {
     }
 
     /* 4x4 Grid */
-    #game-area div {
+    #game-grid div {
         width: 3rem;
         height: 3rem;
         font-size: 2.35rem;

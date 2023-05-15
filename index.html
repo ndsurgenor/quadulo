@@ -10,7 +10,7 @@
 
     <!-- Stylesheet Link and Tab Attributes -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>
     <title>Quadulo</title>
 </head>
 
@@ -20,48 +20,51 @@
         <h1>Quadulo</h1>
     </header>
 
-    <!-- Info Banner -->
-    <section id="info-banner">
+    <!-- Main Game Area -->
+    <section>
+
+        <!-- Info Banner -->
         <div id="banner">
-            <p>Click any <span id="next">1</span> to begin</p>
+            <h2>Click any <span id="next">1</span> to begin</h2>
         </div>
-    </section>
 
-    <!-- 4x4 Grid -->
-    <section id="game-area">
-        <!-- NB: rows numbered top to bottom; columns numbered left to right -->
-        <!-- Row 1 -->
-        <div data-row="1" data-col="1"></div>
-        <div data-row="1" data-col="2"></div>
-        <div data-row="1" data-col="3"></div>
-        <div data-row="1" data-col="4"></div>
-        <!-- Row 2 -->
-        <div data-row="2" data-col="1"></div>
-        <div data-row="2" data-col="2"></div>
-        <div data-row="2" data-col="3"></div>
-        <div data-row="2" data-col="4"></div>
-        <!-- Row 3 -->
-        <div data-row="3" data-col="1"></div>
-        <div data-row="3" data-col="2"></div>
-        <div data-row="3" data-col="3"></div>
-        <div data-row="3" data-col="4"></div>
-        <!-- Row 4 -->
-        <div data-row="4" data-col="1"></div>
-        <div data-row="4" data-col="2"></div>
-        <div data-row="4" data-col="3"></div>
-        <div data-row="4" data-col="4"></div>
-    </section>
+        <!-- 4x4 Grid -->
+        <div id="game-grid">
+            <!-- NB: rows numbered top to bottom; columns numbered left to right -->
+            <!-- Row 1 -->
+            <div data-row="1" data-col="1"></div>
+            <div data-row="1" data-col="2"></div>
+            <div data-row="1" data-col="3"></div>
+            <div data-row="1" data-col="4"></div>
+            <!-- Row 2 -->
+            <div data-row="2" data-col="1"></div>
+            <div data-row="2" data-col="2"></div>
+            <div data-row="2" data-col="3"></div>
+            <div data-row="2" data-col="4"></div>
+            <!-- Row 3 -->
+            <div data-row="3" data-col="1"></div>
+            <div data-row="3" data-col="2"></div>
+            <div data-row="3" data-col="3"></div>
+            <div data-row="3" data-col="4"></div>
+            <!-- Row 4 -->
+            <div data-row="4" data-col="1"></div>
+            <div data-row="4" data-col="2"></div>
+            <div data-row="4" data-col="3"></div>
+            <div data-row="4" data-col="4"></div>
+        </div>
 
-    <!-- Counters & Buttons -->
-    <section id="counters-and-buttons">
-        <div id="counters">
-            <p>Level <span id="level">01</span></p>
-            <p>Blocks cleared <span id="blocks">00</span></p>
+        <!-- Counters & Buttons -->
+        <div id="counters-and-buttons">
+            <div id="counters">
+                <p>Level <span id="level">01</span></p>
+                <p>Blocks cleared <span id="blocks">00</span></p>
+            </div>
+            <div id="buttons">
+                <button data-type="new-game"><i class="fa-solid fa-square-caret-right"></i> New Game</button>
+                <button data-type="rules"><i class="fa-solid fa-square-poll-horizontal"></i> Rules</button>
+            </div>
         </div>
-        <div id="buttons">
-            <button data-type="new-game" id="new"><i class="fa-solid fa-square-caret-right"></i> New Game</button>
-            <button data-type="rules"><i class="fa-solid fa-square-poll-horizontal"></i> Rules</button>
-        </div>
+
     </section>
 
     <!-- Hidden Text (only displayed when certain options are selected) -->
@@ -72,8 +75,8 @@
             <p class="high-score">Level <span id="level-best">01</span> </p>
             <p class="high-score">Blocks <span id="blocks-best">00</span></p>
             <p id="warning">(Note: high score will be lost if broswer is refreshed)</p>
-            <button data-type="view-grid"><i class="fa-solid fa-eye"></i></i> View Grid</button>
-            <button data-type="new-game" id="new"><i class="fa-solid fa-square-caret-right"></i> New Game</button>
+            <button data-type="view-grid"><i class="fa-solid fa-eye"></i> View Grid</button>
+            <button data-type="new-game"><i class="fa-solid fa-square-caret-right"></i> New Game</button>
         </div>
         <div id="confirmation">
             <p>Really start over?
