@@ -118,7 +118,9 @@ h1 {
 }
 
 #level,
-#blocks {
+#blocks,
+#level-best,
+#blocks-best {
     font-weight: bolder;
     background-color: lightcyan;
     border: 1.5px solid dimgray;
@@ -152,9 +154,9 @@ h1 {
 
 /* Game Over Message */
 #game-over {
-    width: 13rem;
+    width: 14.75rem;
     margin: auto;
-    top: -20.5rem;
+    top: -24.5rem;
     animation: reveal 1.5s;
 }
 
@@ -166,6 +168,27 @@ h1 {
     to {
         opacity: 1;
     }
+}
+
+#game-over h2 {
+    color: crimson;
+    margin: 0.1rem 0rem 0.75rem;
+}
+
+.high-score {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0.75rem 0rem 1.5rem;
+}
+
+#level-best,
+#blocks-best {
+    background-color: lavender;
+}
+
+#warning {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
 }
 
 /* Rules Text */
@@ -308,8 +331,17 @@ h1 {
 
     /* Game Over Message */
     #game-over {
-        width: 10.75rem;
-        top: -17rem;
+        width: 11rem;
+        top: -20.25rem;
+    }
+
+    .high-score {
+        font-size: 1rem;
+        margin: 0.5rem 0rem;
+    }
+
+    #warning {
+        font-size: 0.75rem;
     }
 
     /* Rules Text */

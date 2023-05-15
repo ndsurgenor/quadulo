@@ -177,6 +177,19 @@ function cellSelect(col, row, val) {
 }
 
 /**
+ * Checks for a new highscore and, if found,
+ * displays it as part of the GAME OVER message.
+ */
+function recordBest(lev, bloc) {
+    if (bloc > blocHigh) {
+        levHigh = lev;
+        blocHigh = bloc;
+        levelBest.innerHTML = levHigh < 10 ? '0' + levHigh : levHigh;
+        blocksBest.innerHTML = blocHigh < 10 ? '0' + blocHigh : blocHigh;
+    }
+}
+
+/**
  * Styles the banner according to the next required value.
  */
 function bannerStyle(req) {
@@ -233,17 +246,5 @@ function cellStyle(req, cellVal, cellRef) {
         cell.style.color = 'white';
         cell.style.backgroundColor = 'gainsboro';
         cell.style.cursor = 'not-allowed';
-    }
-}
-
-/**
- * Checks for a new highscore and, if found, records it on screen
- */
-function recordBest(lev, bloc) {
-    if (bloc > blocHigh) {
-        levHigh = lev;
-        blocHigh = bloc;
-        levelBest.innerHTML = levHigh;
-        blocksBest.innerHTML = blocHigh;
     }
 }
