@@ -29,7 +29,7 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
 
 - __Title__
 
-  - Featured at the top of the index and 404 pages, the title is centrally placed to emphasise the name and branding of the game.
+  - Placed at the top of the index and 404 pages, the title is centrally located to emphasise the name and branding of the game.
   - Clicking the logo will not refresh/redirect the page as this would interupt the game experience.
   - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of a clickable grid/buttons.
   - A text banner under the title provides useful feedback to the user as to the immediate state of the game.
@@ -55,7 +55,14 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
 
 - __Game Area__
 
-  - ???
+  - Blocks within the grid feature high contrast background colours for ease of readability.
+  - Blocks are also coloured in order to convey important gameplay info to the user:
+    - 1, 2, 3, and 4 are consistently styled with specific colours - crimson, darkorange, forestgreen and royalblue, respectively - as they are the main focus of gameplay.
+    - 5 to 9 are consistently styled with the background colour rebeccapurple as they cannot be selected by the user.
+    - Empty cells have a background colour identical to that of the grid (lightblue).
+    - Unavailable cells use a background colour (gainsboro) to show they are greyed-out.
+  - When using a mouse, hovering over a particular block will provide feedback to the user by highlighting its border.
+  - Cursor styles are also used provide feedback: a 'pointer/hand' for available blocks and a 'not allowed' style for those which are unavailable.
 
 ![Game Area](assets/images/game_area.png)
 
