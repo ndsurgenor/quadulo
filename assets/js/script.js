@@ -24,7 +24,8 @@ let levHigh; //Variable used to track highest level achieved
 let blocHigh; //Variable used to track highest number of blocks cleared
 
 /**
- * Cell and button listeners for click events. 
+ * Cell and button listeners for click events placed within a 'DOMContentLoaded'
+ * listener so allow the HTML to fully load before implementing. 
  */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (endCheck == 16) { //Game Over state
                     recordBest(lev, bloc);
                     banner.innerHTML = `<h2>Required <span id="next">${req}</span> is unavailable</h2>`;
-                    grid.style.animation = '1.5s fade forwards';
+                    grid.style.animation = 'fade 1.5s forwards';
                     over.style.display = 'block';
                 } else { //Game continues
                     endCheck = 0;
@@ -133,7 +134,7 @@ function setupGame() {
 /**
  * Increases the value of a cell by the value it currently contains.
  * All cells in the same row and column are increased by the same amount.
- * NB: if (val == 1) and if (val == 4) MUST be placed at the top and
+ * NB: 'if (val == 1)' and 'if (val == 4)' MUST be placed at the top and
  * bottom of the function respectively in order to operate correctly.
  */
 function cellSelect(col, row, val) {
@@ -181,6 +182,7 @@ function cellSelect(col, row, val) {
  * displays it as part of the GAME OVER message.
  */
 function recordBest(lev, bloc) {
+    
     if (bloc > blocHigh) {
         levHigh = lev;
         blocHigh = bloc;

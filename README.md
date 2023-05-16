@@ -38,6 +38,7 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
 
 - __Info Banner__
 
+  - Messages displayed within the banner are restricted to 30 characters so as to avoid formatting issues and ensure the info provide is succinct.
   - At the outset of the game, the banner instructs the user saying 'Click any 1 to begin' [Fig A].
   - In the course of normal game play, the banner will show which number must be selected next alongside the current upper limit [Fig B].
   - Clicking an unavailable block (empty or greyed-out) will display the message 'Block unavailable. Select a {required number}' [Fig C].
@@ -63,8 +64,10 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
     - Unavailable cells use a background colour (gainsboro) to show they are greyed-out.
   - When using a mouse, hovering over a particular block will provide feedback to the user by highlighting its border.
   - Cursor styles are also used provide feedback: a 'pointer/hand' for available blocks and a 'not allowed' style for those which are unavailable.
+  - The game is coded to setup the grid with a minimum of seven number 1s so as to prevent an immediate 'end of game' state.
 
 ![Game Area](assets/images/readme_file/game_area.png)
+![Game Setup](assets/images/readme_file/game_setup.png)
 
 - __Level & Block Counters__
 
@@ -146,11 +149,14 @@ The following are ideas which can be implemented into the site at a later time (
 - JS: No errors were found when passing 'script.js' through the [JSHint Validator](https://jshint.com/)
 - Accessibility & Performance: A perfect accessibility score was confirmed using Lighthouse in Chrome Developer Tools for both mobile and desktop sites. Performance scored 92/100 for Mobile and a perfect 100 on Desktop.
 
-  ![Lighthouse Report](assets/images/readme/lighthouse.png)
+  ![Lighthouse Report](assets/images/readme_file/lighthouse.png)
 
 ### Fixed Bugs
 
-- ???
+- On certain mobile devices the font-family 'Museo Moderno' was not displaying correctly. This was resolved by setting the import link in the CSS file to weight: 600 and specifying this same weight under the h1 styling header within the same CSS file.
+- Certain messages displayed above the grid were causing formatting issues as they proved to contain too many characters. This has been resolved by restricting any messages in the info banner to 30 characters and making note of such in the JS file.
+- Without specific code to determine how many 1s appear during game setup, unwinnable game states were appearing in a small number of situations. There was also a small chance that the grid could be almost be entirely filled at setup, presenting a less engaging challenge for the user. Both of these were resolved by placing the setup code within a 'do-while' loop ensuring that the number of 1s in any starting grid fall within the range 7-14 inclusive.
+- On ocassion, unavailable cells were not displaying their correct style i.e. being greyed-out. This was resolved by altering the code within the cellStyle function from that of an 'if-else' loop to instead placing the relevant code at the end of the function so that it would overwrite any previous styling.
 
 ### Unfixed Bugs
 
@@ -167,8 +173,6 @@ A live link to the site can be found here: https://ndsurgenor.github.io/quadulo
   - The page will be automatically refreshed (after a short period) to indicate the successful deployment.
 
 ## Credits 
-
-### Content 
 
 - Wireframe protype designed using [Uizard.io](https://uizard.io/)
 - Button icons provided by [Font Awesome](https://fontawesome.com/)
