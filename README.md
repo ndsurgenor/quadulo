@@ -177,4 +177,5 @@ A live link to the site can be found here: https://ndsurgenor.github.io/quadulo
 - Wireframe protype designed using [Uizard.io](https://uizard.io/)
 - Button icons provided by [Font Awesome](https://fontawesome.com/)
 - Favicon created using [favicon.io](https://favicon.io/)
-- README.md file adapted from the Code Institute README.md template
+- 'DOMContentLoaded' listener from [Code Institute 'Love Maths'](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/blob/master/02-adding-some-javascript/02-creating-event-listeners/assets/js/script.js) tutorial used as template in script.js
+- README.md file adapted from the [Code Institute 'Love Running'](https://github.com/Code-Institute-Solutions/readme-template) tutorial

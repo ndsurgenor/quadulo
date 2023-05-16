@@ -25,7 +25,8 @@ let blocHigh; //Variable used to track highest number of blocks cleared
 
 /**
  * Cell and button listeners for click events placed within a 'DOMContentLoaded'
- * listener so allow the HTML to fully load before implementing. 
+ * listener so allow the HTML to fully load before implementing.
+ * Same function from 'Code Institute - Love Maths' tutorial used as template.
  */
 document.addEventListener('DOMContentLoaded', function () {
 
