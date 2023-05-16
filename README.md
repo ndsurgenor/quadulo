@@ -166,11 +166,20 @@ The following are ideas which can be implemented into the site at a later time (
 
 A live link to the site can be found here: https://ndsurgenor.github.io/quadulo 
 
+### GitHub Pages
+
 - This site was deployed to GitHub pages. Steps for deployment are as follows: 
   - In the GitHub repository, navigate to the Settings tab (top right)
   - From the options in the lefthand side menu, select Pages
   - From the Branch section drop-down menus, select 'main' and '/root' then click 'Save'
   - The page will be automatically refreshed (after a short period) to indicate the successful deployment.
+
+### Forking the GitHub Repository
+
+- Forking the repository allows for a copy to be made without affecting the original. Steps for forking are as follows:
+  - Log in to GitHub (requires an account) and locate the [GitHub Repository for Quadulo](https://github.com/ndsurgenor/quadulo)
+  - Locate and click the 'Fork' button near the very top right of the repository page.
+  - This will create a copy of the original Quadulo repository in your own GitHub account.
 
 ## Credits 
 
