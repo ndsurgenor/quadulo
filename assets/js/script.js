@@ -5,12 +5,12 @@ const cells = grid.children; //Targets the 16 divs within the 4x4 grid
 const levelNum = document.getElementById('level'); //Targets the level counter
 const blocksNum = document.getElementById('blocks'); //Targets the block counter
 const buttons = document.getElementsByTagName('button'); //Targets the buttons
-const over = document.getElementById('game-over'); //Targets the hidden game over div
-const scoreMessage = document.getElementById('score-message'); //Targets high score message 
-const levelBest = document.getElementById('level-best'); //Targets the high score level display
-const blocksBest = document.getElementById('blocks-best'); //Targets the high score block display
+const over = document.getElementById('game-over'); //Targets the hidden game-over div
+const scoreMessage = document.getElementById('score-message'); //Targets high-score message 
+const levelBest = document.getElementById('level-best'); //Targets the high-score level display
+const blocksBest = document.getElementById('blocks-best'); //Targets the high-score block display
 const confirmation = document.getElementById('confirmation'); //Targets the hidden confirmation div
-const rules = document.getElementById('rules-text'); //Targets the hidden rules text div
+const rules = document.getElementById('rules-text'); //Targets the hidden rules-text div
 
 let cellsUnavailable = []; //Array used to keep track of selected cells
 let setupCheck; //Variable used to ensure correct setup at game launch
@@ -25,8 +25,8 @@ let blocHigh; //Variable used to track highest number of blocks cleared
 
 /**
  * Cell and button listeners for click events placed within a 'DOMContentLoaded'
- * listener so allow the HTML to fully load before implementing.
- * Same function from 'Code Institute - Love Maths' tutorial used as template.
+ * listener to allow the HTML to fully load before implementing.
+ * Identical function from 'Code Institute - Love Maths' tutorial used as template.
  */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
             let cellMarker = col + row;
             let val = cell.innerHTML;
 
-            //NB Banner messages should be 30 characters or fewer to fit comfortably on screen
+            //NB Banner messages must be 30 characters or fewer to fit comfortably on screen!
             if (endCheck == 16) { //Cell slected when no possible moves left
                 banner.innerHTML = `<h2>Click <span id="banner-ng">New Game</span> to start over</h2>`;
-            } else if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or grayed-out cell selected
+            } else if (val == 0 || cellsUnavailable.includes(cellMarker)) { //Empty or greyed-out cell selected
                 banner.innerHTML = `<h2>Block unavailable. Select a <span id="next">${req}</span></h2>`;
                 bannerStyle(req);
             } else if (val != req) { //Incorrect value selected
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Listens for selection of a button
+    // Listens for selection of a particular button
     for (let button of buttons) {
         button.addEventListener('click', function () {
 
@@ -102,11 +102,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * Sets up the initial game state. 
+ * Sets up the initial game state and resets
+ * certain variables to their original values. 
  */
 function setupGame() {
 
-    //Sets variables and counters to intial values
+    //Variable and counter reset
     endCheck = 0;
     cellsUnavailable = [];
     req = 1;
@@ -121,7 +122,7 @@ function setupGame() {
 
         for (cell of cells) {
 
-            let cellRef = 0; //Ensures no cells are greyed out during setup
+            let cellRef = 0; //Ensures no cells are greyed-out during setup
             let cellVal = Math.floor(Math.random() * 2);
             cell.innerHTML = cellVal; //Fills cells with values of 0 or 1
             setupCheck = setupCheck + cellVal;
@@ -129,18 +130,18 @@ function setupGame() {
             bannerStyle(req);
             cellStyle(req, cellVal, cellRef);
         }
-    } while (setupCheck < 7 || setupCheck > 14); //Prevents a no-win or almost filled grid
+    } while (setupCheck < 7 || setupCheck > 14); //Prevents a 'no-win' or almost filled grid
 }
 
 /**
  * Increases the value of a cell by the value it currently contains.
  * All cells in the same row and column are increased by the same amount.
- * NB: 'if (val == 1)' and 'if (val == 4)' MUST be placed at the top and
- * bottom of the function respectively in order to operate correctly.
+ * NB: statements 'if (val == 1)' and 'if (val == 4)' MUST be placed at the
+ * top and bottom of the function respectively in order to operate correctly.
  */
 function cellSelect(col, row, val) {
 
-    //Resets grayed-out cells when a 1 is clicked
+    //Resets greyed-out cells when a 1 is clicked
     if (val == 1) {
         cellsUnavailable = [];
     }
@@ -158,8 +159,8 @@ function cellSelect(col, row, val) {
         let currentVal = cell.innerHTML;
 
         if (cellColumn === col || cellRow === row) { //Finds all cells in the same column and row as the selected cell                              
-            let newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to cell selected
-            cell.innerHTML = newVal > lim ? newVal - lim : newVal; //Uses modular sum to lim as upper value                       
+            let newVal = parseInt(currentVal) + parseInt(val); //Calculates new values for cells according to the selected cell
+            cell.innerHTML = newVal > lim ? newVal - lim : newVal; //Uses modular arithmetic to set lim as upper value                       
         }
 
         let cellVal = cell.innerHTML;
