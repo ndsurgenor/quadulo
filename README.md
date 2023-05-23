@@ -142,7 +142,11 @@ The following are ideas which can be implemented into the site at a later time (
 - Text, graphics and grid/dialog boxes have been tested to ensure that they resize correctly on smaller screens.
 
 ### Gameplay & Banner Testing
-- The setupGame() function has been tested by previously including a console.log() in the code which displayed the number of 1s present in the starting grid. This made it easy to see that between 7 to 14 number 1s were being created at setup, as is intended.
+
+- The setupGame() function has been tested by previously including a console.log() in the code which displayed the number of 1s present in the starting grid. This made it easier to see that between 7 to 14 number 1s were being created at setup, as is intended. The game was loaded in the browser multiple times to obtain multiple setup states and view this log. In each case the correct banner message of 'Click any 1 to begin' was also displayed.
+- The banner messages and responses of the grid were tested by trying to play the game 'incorrectly' on multiple occassions; for example, clicking 1234 out of sequence, attempting to select grayed-out cells, attempting to click numbers higher than 4. In the early stages of the game's development these error states were feedback using alert() messages, later replaced by the info banner text which is now in game.
+- All of these features have been tested in situations both where the  
+
 
 ### Button & Link testing
 - 
