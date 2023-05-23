@@ -134,11 +134,18 @@ The following are ideas which can be implemented into the site at a later time (
 
 ## Testing
 
+### General Testing
+
 - This site has been tested for responsiveness across different screen sizes by utilizing Google Chrome's developer tools. The following link provides a [Responsive Preview](https://ui.dev/amiresponsive?url=https://ndsurgenor.github.io/quadulo/) of various screen sizes.
 - This site has been tested for responsiveness in 'real-world' contexts by viewing the site on widescreen desktop and laptop setups, medium-screen tablets, and smaller-screen smartphone devices.
 - This site has also been tested for responsiveness on various browsers including Chrome, Firefox, Edge and Safari.
-- Buttons and links have been tested to ensure that they fufil the correct functions/direct to the correct page.
 - Text, graphics and grid/dialog boxes have been tested to ensure that they resize correctly on smaller screens.
+
+### Gameplay & Banner Testing
+- The setupGame() function has been tested by previously including a console.log() in the code which displayed the number of 1s present in the starting grid. This made it easy to see that between 7 to 14 number 1s were being created at setup, as is intended.
+
+### Button & Link testing
+- 
 
 ### Validator Testing 
 
