@@ -145,11 +145,13 @@ The following are ideas which can be implemented into the site at a later time (
 
 - The setupGame() function has been tested by previously including a console.log() in the code which displayed the number of 1s present in the starting grid. This made it easier to see that between 7 to 14 number 1s were being created at setup, as is intended. The game was loaded in the browser multiple times to obtain multiple setup states and view this log. In each case the correct banner message of 'Click any 1 to begin' was also displayed.
 - The banner messages and responses of the grid were tested by trying to play the game 'incorrectly' on multiple occassions; for example, clicking 1234 out of sequence, attempting to select grayed-out cells, attempting to click numbers higher than 4. In the early stages of the game's development these error states were feedback using alert() messages, later replaced by the info banner text which is now in game.
-- All of these features have been tested in situations both where the  
-
+- The display of GAME OVER and recording of current/new high scores was tested by playing the game multiple times within one session of the browser window. Again console.log() messages were orginally used, this time to record the value of the val, bloc, req and endCheck variables within the console. Originally an alert() message was invoked to indicate the end of game which then became a banner message and finally the dialog which is now ingame.
+- All of these features have been tested by both loading a new game into the browser and intiating a new game using the button below the grid in order to ensure that particular variables were being reset as necessary.
 
 ### Button & Link testing
-- 
+- The 'New Game' button has been tested during multiple game states (setup, mid-game, game over) to ensure that the confirmation dialog appears as intended and indeed that it does not appear when a game has reached its conclusion. This conifrmation has also been extensively checked to ensure that it either begins a new game correctly ('Yes' selected) or returns the user to their current game ('No' selected) without any other change of variable.
+- The 'Rules' button has been tested to ensure it displays correctly over the grid and other buttons, without the repositioning of other elements, and that the 'OK - Got it!' button within the rules dialog closes the window correctly so that the user can continue their game, again without changing any other variables.
+- The 'View Grid' and 'New Game' buttons appearing within the GAME OVER dialog have been tested to ensure that they hide the dialog and unfade the grid, and start a new game without the neeed for confirmation, respectively.
 
 ### Validator Testing 
 
