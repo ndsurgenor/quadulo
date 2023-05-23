@@ -27,9 +27,10 @@ Originally the idea revolved around using a 5x5 grid with a aim to creating rows
 
 ### Existing Features
 
-- __Title__
+- __Favicon & Title__
 
-  - Placed at the top of the index and 404 pages, the title is centrally located to emphasise the name and branding of the game.
+  - A favicon is included as part of the tab styling, taking the form of the stylised 'Q' found in the game's title.
+  - The title is placed at the top of the page and centrally located to emphasise the name and branding of the game.
   - Clicking the logo will not refresh/redirect the page as this would interrupt the game experience.
   - No navigation bar is provided as this site has a one-page focus; interaction occurs through means of a clickable grid/buttons.
   - A text banner under the title provides useful feedback to the user as to the current state of the game.
