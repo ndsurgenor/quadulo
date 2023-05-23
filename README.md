@@ -6,7 +6,7 @@ Quadulo is a point-and-click logic game which incorporates strategic forward-thi
 
 The main aims of the site are as follows:
 - to provide an challenging game which runs in an internet browser
-- to provide a game incoporates basic logic so the user feels in control of their decisions 
+- to provide a game incorporates basic logic so the user feels in control of their decisions 
 - to provide a game which becomes more diffcult as it progresses so as to engage the user
 - to present a game whiere the graphic design provides clear feedback and complements the gameplay
 
