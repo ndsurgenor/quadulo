@@ -148,10 +148,16 @@ The following are ideas which can be implemented into the site at a later time (
 - The display of GAME OVER and recording of current/new high scores was tested by playing the game multiple times within one session of the browser window. Again console.log() messages were orginally used, this time to record the value of the val, bloc, req and endCheck variables within the console. Originally an alert() message was invoked to indicate the end of game which then became a banner message and finally the dialog which is now ingame.
 - All of these features have been tested by both loading a new game into the browser and intiating a new game using the button below the grid in order to ensure that particular variables were being reset as necessary.
 
-### Button & Link testing
+### Button Testing
+
 - The 'New Game' button has been tested during multiple game states (setup, mid-game, game over) to ensure that the confirmation dialog appears as intended and indeed that it does not appear when a game has reached its conclusion. This conifrmation has also been extensively checked to ensure that it either begins a new game correctly ('Yes' selected) or returns the user to their current game ('No' selected) without any other change of variable.
 - The 'Rules' button has been tested to ensure it displays correctly over the grid and other buttons, without the repositioning of other elements, and that the 'OK - Got it!' button within the rules dialog closes the window correctly so that the user can continue their game, again without changing any other variables.
 - The 'View Grid' and 'New Game' buttons appearing within the GAME OVER dialog have been tested to ensure that they hide the dialog and unfade the grid, and start a new game without the neeed for confirmation, respectively.
+
+### Link & Redirect Testing
+
+- The 'CLICK HERE' link within the 404.html page has been tested to ensure it directs within the same window to the index.html page.
+- The meta tag within the 404.html head has also been tested to ensure that the page automatically redirects the user within the same window to index.html after 8 seconds if they decide not to use the afforementioned link.
 
 ### Validator Testing 
 
